@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TinkoffFintech</string>
+    <string name="start_icon">start icon</string>
+    <string name="login">ЛОГИН</string>
+    <string name="password">ПАРОЛЬ</string>
+    <string name="log">ВОЙТИ</string>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#458BF6</color>
+    <color name="colorPrimaryDark">#3F48CC</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorPrimaryAuth">#3E4757</color>
+    <color name="colorPrimaryDarkAuth">#373F4E</color>
+    <color name="backEditText">#646B78</color>
+    <color name="textEditText">#ffffff</color>
+    <color name="backButton">#FFDD2D</color>
+    <color name="backButtonPressed">#FFDD2D</color>
+
+</resources>

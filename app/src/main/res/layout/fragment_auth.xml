@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="206dp"
+        android:layout_height="174dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="389dp"
+        android:src="@drawable/image_auth"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextLogin"
+        android:layout_width="296dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="308dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="276dp"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:textStyle="normal"
+        android:textColor="@color/textEditText"
+        android:gravity="center"
+        android:background="@drawable/edit_text_auth"
+        android:inputType="textPersonName"
+        android:hint="@string/login"
+        android:textSize="14sp"
+        android:textColorHint="@color/textEditText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="296dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="372dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="212dp"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:textStyle="normal"
+        android:textColor="@color/textEditText"
+        android:gravity="center"
+        android:background="@drawable/edit_text_auth"
+        android:inputType="textPassword"
+        android:hint="@string/password"
+        android:textSize="14sp"
+        android:textColorHint="@color/textEditText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonAuth"
+        android:layout_width="296dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="436dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="148dp"
+        android:text="@string/log"
+        android:textSize="14sp"
+        android:background="@drawable/button_auth"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

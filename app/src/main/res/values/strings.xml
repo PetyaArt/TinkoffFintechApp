@@ -4,4 +4,11 @@
     <string name="login">ЛОГИН</string>
     <string name="password">ПАРОЛЬ</string>
     <string name="log">ВОЙТИ</string>
+    <string name="field_empty">Поля ввода пустые</string>
+    <string name="error">ошибка</string>
+    <string name="no_internet">Нет интернета</string>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

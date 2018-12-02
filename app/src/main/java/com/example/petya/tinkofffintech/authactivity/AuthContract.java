@@ -1,5 +1,7 @@
 package com.example.petya.tinkofffintech.authactivity;
 
+import android.text.Editable;
+
 import com.example.petya.tinkofffintech.BasePresenter;
 import com.example.petya.tinkofffintech.BaseView;
 
@@ -11,10 +13,15 @@ public interface AuthContract {
 
         void hideProgress();
 
+        void showNoInternet();
 
+        void showError();
+
+        void showFieldEmpty();
     }
 
-    interface Presenter extends BasePresenter {
+    interface Presenter extends BasePresenter<View> {
 
+        void buttonPress(String text, String mPasswordText);
     }
 }

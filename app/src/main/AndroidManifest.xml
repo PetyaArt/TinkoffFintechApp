@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".App"
+        android:name=".di.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -23,9 +23,10 @@
         </activity>
         <activity
             android:name=".authactivity.AuthActivity"
-            android:theme="@style/AppThemeAuth">
-
-        </activity>
+            android:theme="@style/AppThemeAuth"></activity>
+        <activity
+            android:name=".mainmenuactivity.MainMenuActivity"
+            android:label="@string/title_activity_main_menu"></activity>
     </application>
 
 </manifest>

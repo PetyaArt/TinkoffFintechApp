@@ -2,16 +2,9 @@ package com.example.petya.tinkofffintech.network;
 
 import android.content.Context;
 
-import com.example.petya.tinkofffintech.AddCookieInterceptor;
-import com.example.petya.tinkofffintech.ApiServer;
-import com.example.petya.tinkofffintech.ReceivedCookiesInterceptor;
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
-import java.io.IOException;
-
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -28,6 +21,7 @@ public class RetrofitInstance {
     public ApiServer getApiServer() {
         Retrofit builder = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client( new OkHttpClient.Builder()
                         .addInterceptor(new AddCookieInterceptor(mContext))

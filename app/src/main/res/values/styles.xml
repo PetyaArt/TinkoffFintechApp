@@ -20,7 +20,16 @@
     <style name="AppThemeAuth" parent="AppThemeNoActionBar">
         <item name="colorPrimary">@color/colorPrimaryAuth</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkAuth</item>
-        <item name="android:background">@color/colorPrimaryAuth</item>
+    </style>
+
+    <style name="CircularProgress" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/backButton</item>
+    </style>
+
+    <style name="Theme.App.Base" parent="AppTheme">
+        <item name="colorControlNormal">@color/backButton</item>
+        <item name="colorControlActivated">@color/backButton</item>
+        <item name="colorControlHighlight">@color/backButton</item>
     </style>
 
 </resources>

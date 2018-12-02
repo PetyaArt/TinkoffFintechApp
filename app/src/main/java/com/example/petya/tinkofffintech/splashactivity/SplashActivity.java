@@ -1,9 +1,9 @@
 package com.example.petya.tinkofffintech.splashactivity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import com.example.petya.tinkofffintech.R;
 import com.example.petya.tinkofffintech.authactivity.AuthActivity;
 import com.example.petya.tinkofffintech.network.RetrofitInstance;
-import com.example.petya.tinkofffintech.SingInBody;
+import com.example.petya.tinkofffintech.network.SingInBody;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,21 +34,6 @@ public class SplashActivity extends AppCompatActivity {
         mConstraintLayout = findViewById(R.id.splash_layout);
         mImageView = findViewById(R.id.splash_icon);
         mAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate);
-
-
-        SingInBody singInBody = new SingInBody();
-        
-        new RetrofitInstance(this).getApiServer().singIn2().enqueue(new Callback<Object>() {
-            @Override
-            public void onResponse(Call<Object> call, Response<Object> response) {
-                Log.d("myLogs", String.valueOf(response.body()));
-            }
-
-            @Override
-            public void onFailure(Call<Object> call, Throwable t) {
-
-            }
-        });
     }
 
     private void initFunctionality() {

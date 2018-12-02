@@ -10,5 +10,6 @@
     <color name="textEditText">#ffffff</color>
     <color name="backButton">#FFDD2D</color>
     <color name="backButtonPressed">#FFDD2D</color>
+    <color name="bottomLine">#C7C9CC</color>
 
 </resources>

@@ -19,6 +19,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+//TODO: можно наврное сделать через Dagger мб не уверен
 public class SplashActivity extends AppCompatActivity {
 
     public static final int SPLASH_DURATION = 0;

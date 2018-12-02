@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.example.petya.tinkofffintech.R;
 import com.example.petya.tinkofffintech.authactivity.AuthActivity;
+import com.example.petya.tinkofffintech.mainmenuactivity.MainMenuActivity;
 import com.example.petya.tinkofffintech.network.RetrofitInstance;
 import com.example.petya.tinkofffintech.network.SingInBody;
 
@@ -50,7 +51,7 @@ public class SplashActivity extends AppCompatActivity {
                     @Override
                     public void onAnimationEnd(Animation animation) {
                         //TODO: открытие другого Activity
-                        Intent intent = new Intent(SplashActivity.this, AuthActivity.class);
+                        Intent intent = new Intent(SplashActivity.this, MainMenuActivity.class);
                         startActivity(intent);
                         finish();
                     }

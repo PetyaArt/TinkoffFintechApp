@@ -3,13 +3,34 @@ package com.example.petya.tinkofffintech.mainmenuactivity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.example.petya.tinkofffintech.R;
+import com.example.petya.tinkofffintech.di.App;
+import com.example.petya.tinkofffintech.mainmenuactivity.events.EventsFragment;
+import com.example.petya.tinkofffintech.mainmenuactivity.mycourses.MyCoursesFragment;
+import com.example.petya.tinkofffintech.mainmenuactivity.profile.ProfileFragment;
+
+import javax.inject.Inject;
+
+import dagger.Lazy;
+
 public class MainMenuActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
+    @Inject
+    EventsFragment mEventsFragment;
+    @Inject
+    MyCoursesFragment mMyCoursesFragment;
+    @Inject
+    ProfileFragment mProfileFragment;
+
+    Fragment mFragmentActive;
+
+    final FragmentManager fm = getSupportFragmentManager();
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -18,13 +39,16 @@ public class MainMenuActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+                    fm.beginTransaction().hide(mFragmentActive).show(mEventsFragment).commit();
+                    mFragmentActive = mEventsFragment;
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                    fm.beginTransaction().hide(mFragmentActive).show(mMyCoursesFragment).commit();
+                    mFragmentActive = mMyCoursesFragment;
                     return true;
                 case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
+                    fm.beginTransaction().hide(mFragmentActive).show(mProfileFragment).commit();
+                    mFragmentActive = mProfileFragment;
                     return true;
             }
             return false;
@@ -35,10 +59,15 @@ public class MainMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+        App.getApp(this).getComponentsHolder().getMainMenuComponent().injectMainMenuActivity(this);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-    }
 
+        //TODO:баг при перевороте экрана фрагменты накладываються
+        mFragmentActive = mEventsFragment;
+        fm.beginTransaction().add(R.id.main_container, mProfileFragment, "3").hide(mProfileFragment).commit();
+        fm.beginTransaction().add(R.id.main_container, mMyCoursesFragment, "2").hide(mMyCoursesFragment).commit();
+        fm.beginTransaction().add(R.id.main_container,mEventsFragment, "1").commit();
+    }
 }

@@ -6,6 +6,7 @@ import com.example.petya.tinkofffintech.authactivity.dagger.AuthActivityComponen
 import com.example.petya.tinkofffintech.di.dagger.AppComponent;
 import com.example.petya.tinkofffintech.di.dagger.AppModule;
 import com.example.petya.tinkofffintech.di.dagger.DaggerAppComponent;
+import com.example.petya.tinkofffintech.mainmenuactivity.dagger.MainMenuComponent;
 
 public class ComponentsHolder {
 
@@ -13,6 +14,7 @@ public class ComponentsHolder {
 
     private AppComponent mAppComponent;
     private AuthActivityComponent mAuthActivityComponent;
+    private MainMenuComponent mMainMenuComponent;
 
     public ComponentsHolder(Context context) {
         this.context = context;
@@ -27,9 +29,6 @@ public class ComponentsHolder {
         return mAppComponent;
     }
 
-
-    // FirstActivityComponent
-
     public AuthActivityComponent getAuthActivityComponent() {
         if (mAuthActivityComponent == null) {
             mAuthActivityComponent = getAppComponent().createAuthActivityComponent();
@@ -39,6 +38,18 @@ public class ComponentsHolder {
 
     public void releaseFirstActivityComponent() {
         mAuthActivityComponent = null;
+    }
+
+
+    public MainMenuComponent getMainMenuComponent() {
+        if (mMainMenuComponent == null) {
+            mMainMenuComponent = getAppComponent().createMainMenuComponent();
+        }
+        return mMainMenuComponent;
+    }
+
+    public void releaseMainMenuComponent() {
+        mMainMenuComponent = null;
     }
 
 

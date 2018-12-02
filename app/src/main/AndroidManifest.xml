@@ -14,7 +14,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".splashactivity.SplashActivity"
-            android:theme="@style/AppThemeFullScreen">
+            android:theme="@style/AppThemeFullScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,10 +24,12 @@
         </activity>
         <activity
             android:name=".authactivity.AuthActivity"
-            android:theme="@style/AppThemeAuth"></activity>
+            android:theme="@style/AppThemeAuth"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".mainmenuactivity.MainMenuActivity"
-            android:label="@string/title_activity_main_menu"></activity>
+            android:label="@string/title_activity_main_menu"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

@@ -4,20 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.example.petya.tinkofffintech.R;
-import com.example.petya.tinkofffintech.authactivity.AuthActivity;
 import com.example.petya.tinkofffintech.mainmenuactivity.MainMenuActivity;
-import com.example.petya.tinkofffintech.network.RetrofitInstance;
-import com.example.petya.tinkofffintech.network.SingInBody;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 //TODO: можно наврное сделать через Dagger мб не уверен
 public class SplashActivity extends AppCompatActivity {

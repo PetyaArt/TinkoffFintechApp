@@ -1,4 +1,4 @@
-package com.example.petya.tinkofffintech.data.source;
+package com.example.petya.tinkofffintech.data.animedata;
 
 import android.arch.persistence.room.TypeConverter;
 

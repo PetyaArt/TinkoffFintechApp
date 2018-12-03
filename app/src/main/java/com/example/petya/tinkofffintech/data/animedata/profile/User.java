@@ -4,7 +4,7 @@ package com.example.petya.tinkofffintech.data.animedata.profile;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.TypeConverters;
 
-import com.example.petya.tinkofffintech.data.source.DataTypeConverter;
+import com.example.petya.tinkofffintech.data.animedata.DataTypeConverter;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

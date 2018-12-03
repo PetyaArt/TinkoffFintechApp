@@ -1,7 +1,6 @@
 package com.example.petya.tinkofffintech.authactivity;
 
 import android.support.annotation.Nullable;
-import android.text.Editable;
 import android.util.Log;
 
 import com.example.petya.tinkofffintech.data.animedata.profile.Profile;
@@ -50,7 +49,7 @@ public class AuthPresenter implements AuthContract.Presenter {
                 mAuthView.hideProgress();
             }
         } else {
-            mRepository.getApiServer().singIn(new SingInBody(login, password))
+            mRepository.getApiServer().singIn(new SingInBody(login, password)) //TODO: добавить timeout
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Observer<Profile>() {

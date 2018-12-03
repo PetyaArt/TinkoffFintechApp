@@ -17,8 +17,6 @@ import com.example.petya.tinkofffintech.di.App;
 
 import javax.inject.Inject;
 
-import dagger.android.support.DaggerFragment;
-
 public class AuthFragment extends Fragment implements AuthContract.View, View.OnClickListener {
 
     @Inject

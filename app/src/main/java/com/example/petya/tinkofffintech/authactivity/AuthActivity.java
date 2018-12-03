@@ -10,11 +10,9 @@ import com.example.petya.tinkofffintech.util.ActivityUtils;
 import javax.inject.Inject;
 
 import dagger.Lazy;
-import dagger.android.support.DaggerAppCompatActivity;
 
 public class AuthActivity extends AppCompatActivity {
 
-    private static final String CURRENT_FILTERING_KEY = "CURRENT_FILTERING_KEY";
     @Inject
     AuthPresenter mAuthPresenter;
 

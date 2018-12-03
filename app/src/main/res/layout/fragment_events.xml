@@ -27,23 +27,32 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="Актуальное"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="#333333"
+                android:lineSpacingExtra="5sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Актуальное"/>
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/counterRelevant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="19dp"
-                android:text="Все 32"
+                android:fontFamily="sans-serif-medium"
+                android:lineSpacingExtra="5sp"
+                android:textColor="#458bf6"
+                android:textSize="14sp"
+                android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Все 32" />
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView2"
-                android:orientation="horizontal"
+                android:id="@+id/recyclerViewRelevant"
                 tools:listitem="@layout/relevant_events_list_item"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -80,22 +89,32 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="Прошедшие"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="#333333"
+                android:lineSpacingExtra="5sp"
+                tools:text="Прошедшие"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/counterPast"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="19dp"
-                android:text="Все 104"
+                android:fontFamily="sans-serif-medium"
+                android:lineSpacingExtra="5sp"
+                android:textColor="#458bf6"
+                android:textSize="14sp"
+                android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Все 104" />
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView3"
+                android:id="@+id/recyclerViewPast"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 tools:listitem="@layout/past_event_list_item"

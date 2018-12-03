@@ -35,15 +35,15 @@ public class MainMenuActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
+                case R.id.navigation_events:
                     fm.beginTransaction().hide(mFragmentActive).show(mEventsFragment).commit();
                     mFragmentActive = mEventsFragment;
                     return true;
-                case R.id.navigation_dashboard:
+                case R.id.navigation_school:
                     fm.beginTransaction().hide(mFragmentActive).show(mMyCoursesFragment).commit();
                     mFragmentActive = mMyCoursesFragment;
                     return true;
-                case R.id.navigation_notifications:
+                case R.id.navigation_profile:
                     fm.beginTransaction().hide(mFragmentActive).show(mProfileFragment).commit();
                     mFragmentActive = mProfileFragment;
                     return true;

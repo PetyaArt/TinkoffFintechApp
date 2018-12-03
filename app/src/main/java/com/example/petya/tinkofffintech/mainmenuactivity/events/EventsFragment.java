@@ -1,5 +1,6 @@
 package com.example.petya.tinkofffintech.mainmenuactivity.events;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 import com.example.petya.tinkofffintech.R;
 import com.example.petya.tinkofffintech.data.animedata.event.Events;
 import com.example.petya.tinkofffintech.di.App;
+import com.example.petya.tinkofffintech.pastactivity.PastActivity;
+import com.example.petya.tinkofffintech.relevantactivity.RelevantActivity;
 
 import javax.inject.Inject;
 
@@ -61,9 +64,9 @@ public class EventsFragment extends Fragment implements EventsContract.View, Vie
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        mRelevantRecyclerView = view.findViewById(R.id.recyclerViewRelevant);
+        mRelevantRecyclerView = view.findViewById(R.id.recyclerViewRelevantEvents);
         mRelevantRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        mPastRecyclerView = view.findViewById(R.id.recyclerViewPast);
+        mPastRecyclerView = view.findViewById(R.id.recyclerViewPastEvents);
         mPastRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         mCounterRelevant = view.findViewById(R.id.counterRelevant);
@@ -94,16 +97,16 @@ public class EventsFragment extends Fragment implements EventsContract.View, Vie
 
     @Override
     public void setAdapter(Events events) {
-        RelevantViewAdapter relevantViewAdapter = new RelevantViewAdapter();
+        RelevantEventsViewAdapter relevantViewAdapter = new RelevantEventsViewAdapter();
         relevantViewAdapter.setEvents(events);
         mRelevantRecyclerView.setAdapter(relevantViewAdapter);
 
-        PastViewAdapter pastViewAdapter= new PastViewAdapter();
+        PastEventsViewAdapter pastViewAdapter= new PastEventsViewAdapter();
         pastViewAdapter.setEvents(events);
         mPastRecyclerView.setAdapter(pastViewAdapter);
 
-        mCounterRelevant.setText(events.getActive().size());
-        mCounterPast.setText(events.getArchive().size());
+        mCounterRelevant.setText(String.format("%s %s", getString(R.string.all), String.valueOf(events.getActive().size())));
+        mCounterPast.setText(String.format("%s %s", getString(R.string.all), String.valueOf(events.getArchive().size())));
     }
 
     private void showMessage(String message) {
@@ -114,10 +117,10 @@ public class EventsFragment extends Fragment implements EventsContract.View, Vie
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.counterRelevant:
-                //TODO: открытие другого Activity
+                startActivity(new Intent(getContext(), RelevantActivity.class));
                 break;
             case R.id.counterPast:
-                //TODO: открытие другого Activity
+                startActivity(new Intent(getContext(), PastActivity.class));
                 break;
         }
     }

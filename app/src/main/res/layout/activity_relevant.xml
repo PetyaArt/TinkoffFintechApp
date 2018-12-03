@@ -6,9 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".relevantactivity.RelevantActivity">
 
-
     <FrameLayout
-        android:id="@+id/contentFrame"
+        android:id="@+id/contentFrameRelevant"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </FrameLayout>

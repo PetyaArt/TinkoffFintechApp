@@ -42,7 +42,7 @@ public class EventsPresenter implements EventsContract.Presenter {
 
                     @Override
                     public void onError(Throwable e) {
-
+                        Log.d("myLogs", e.toString());
                     }
 
                     @Override

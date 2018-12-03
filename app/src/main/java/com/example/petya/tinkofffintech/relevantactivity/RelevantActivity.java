@@ -24,15 +24,15 @@ public class RelevantActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_relevant);
-
-        //App.getApp(this).getComponentsHolder().getAuthActivityComponent().injectAuthActivity(this);
+        //TODO: если успею добавить поиск
+        App.getApp(this).getComponentsHolder().getRelevantActivityComponent().injectRelevantActivity(this);
 
         RelevantFragment relevantFragment =
-                (RelevantFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
+                (RelevantFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrameRelevant);
         if (relevantFragment == null) {
             relevantFragment = mRelevantFragmentProvider.get();
             ActivityUtils.addFragmentToActivity(
-                    getSupportFragmentManager(), relevantFragment, R.id.contentFrame);
+                    getSupportFragmentManager(), relevantFragment, R.id.contentFrameRelevant);
         }
     }
 }

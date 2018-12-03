@@ -31,6 +31,7 @@
             android:label="@string/title_activity_main_menu"
             android:screenOrientation="portrait" />
         <activity android:name=".relevantactivity.RelevantActivity"></activity>
+        <activity android:name=".pastactivity.PastActivity"></activity>
     </application>
 
 </manifest>

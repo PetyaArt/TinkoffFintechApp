@@ -1,9 +1,8 @@
-package com.example.petya.tinkofffintech.relevantactivity;
+package com.example.petya.tinkofffintech.pastactivity;
 
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.example.petya.tinkofffintech.authactivity.AuthContract;
 import com.example.petya.tinkofffintech.data.animedata.event.Events;
 import com.example.petya.tinkofffintech.data.source.Repository;
 
@@ -14,20 +13,20 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class RelevantPresenter implements RelevantContract.Presenter {
+public class PastPresenter implements PastContract.Presenter {
 
     private final Repository mRepository;
 
     @Nullable
-    private RelevantContract.View mAuthView;
+    private PastContract.View mAuthView;
 
     @Inject
-    public RelevantPresenter(Repository repository) {
+    public PastPresenter(Repository repository) {
         mRepository = repository;
     }
 
     @Override
-    public void takeView(RelevantContract.View view) {
+    public void takeView(PastContract.View view) {
         this.mAuthView = view;
         mRepository.getApiServer().getEvents()
                 .subscribeOn(Schedulers.io())

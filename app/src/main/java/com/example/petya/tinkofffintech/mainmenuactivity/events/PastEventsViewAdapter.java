@@ -9,12 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.petya.tinkofffintech.R;
-import com.example.petya.tinkofffintech.data.animedata.event.Active;
 import com.example.petya.tinkofffintech.data.animedata.event.Archive;
 import com.example.petya.tinkofffintech.data.animedata.event.Events;
 import com.squareup.picasso.Picasso;
 
-public class PastViewAdapter extends RecyclerView.Adapter<PastViewAdapter.ViewHolder> {
+public class PastEventsViewAdapter extends RecyclerView.Adapter<PastEventsViewAdapter.ViewHolder> {
 
     private Events mEvents;
 
@@ -63,7 +62,7 @@ public class PastViewAdapter extends RecyclerView.Adapter<PastViewAdapter.ViewHo
                 if (archive.getEventType().getName().equals("Финтех Школа")) {
                     Picasso.get().load(R.drawable.ic_fintech_school).into(imageEvents);
                 }
-                if (archive.getEventType().getName().equals("Стажровка")){
+                if (archive.getEventType().getName().equals("Стажировка")){
                     Picasso.get().load(R.drawable.ic_internship).into(imageEvents);
                 }
                 if (archive.getEventType().getName().equals("Школьникам")){

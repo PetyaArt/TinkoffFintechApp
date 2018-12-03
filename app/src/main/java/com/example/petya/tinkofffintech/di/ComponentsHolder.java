@@ -7,6 +7,8 @@ import com.example.petya.tinkofffintech.di.dagger.AppComponent;
 import com.example.petya.tinkofffintech.di.dagger.AppModule;
 import com.example.petya.tinkofffintech.di.dagger.DaggerAppComponent;
 import com.example.petya.tinkofffintech.mainmenuactivity.dagger.MainMenuComponent;
+import com.example.petya.tinkofffintech.pastactivity.dagger.PastActivityComponent;
+import com.example.petya.tinkofffintech.relevantactivity.dagger.RelevantActivityComponent;
 
 public class ComponentsHolder {
 
@@ -15,6 +17,8 @@ public class ComponentsHolder {
     private AppComponent mAppComponent;
     private AuthActivityComponent mAuthActivityComponent;
     private MainMenuComponent mMainMenuComponent;
+    private RelevantActivityComponent mRelevantActivityComponent;
+    private PastActivityComponent mPastActivityComponent;
 
     public ComponentsHolder(Context context) {
         this.context = context;
@@ -52,6 +56,26 @@ public class ComponentsHolder {
         mMainMenuComponent = null;
     }
 
+    public RelevantActivityComponent getRelevantActivityComponent() {
+        if (mRelevantActivityComponent == null) {
+            mRelevantActivityComponent = getAppComponent().createRelevantActivityComponent();
+        }
+        return mRelevantActivityComponent;
+    }
 
+    public void releaseRelevantActivityComponentt() {
+        mRelevantActivityComponent = null;
+    }
+
+    public PastActivityComponent getPastActivityComponent() {
+        if (mPastActivityComponent == null) {
+            mPastActivityComponent = getAppComponent().createPastActivityComponent();
+        }
+        return mPastActivityComponent;
+    }
+
+    public void releasePastActivityComponent() {
+        mPastActivityComponent = null;
+    }
 
 }

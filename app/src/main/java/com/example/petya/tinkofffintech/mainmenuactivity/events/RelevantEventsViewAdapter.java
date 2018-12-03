@@ -11,22 +11,17 @@ import android.widget.TextView;
 import com.example.petya.tinkofffintech.R;
 import com.example.petya.tinkofffintech.data.animedata.event.Active;
 import com.example.petya.tinkofffintech.data.animedata.event.Events;
-import com.example.petya.tinkofffintech.util.constants.СonstantsImageUrl;
-import com.squareup.picasso.MemoryPolicy;
-import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 import static com.example.petya.tinkofffintech.util.constants.СonstantsImageUrl.*;
 
-public class RelevantViewAdapter extends RecyclerView.Adapter<RelevantViewAdapter.ViewHolder> {
+public class RelevantEventsViewAdapter extends RecyclerView.Adapter<RelevantEventsViewAdapter.ViewHolder> {
 
     private Events mEvents;
 
-    public static final String[] urlString = {image1, image2, image3, image4, image5, image6, image7, image8, image9};
+    private static final String[] urlString = {image1, image2, image3, image4, image5, image6, image7, image8, image9};
 
     @NonNull
     @Override

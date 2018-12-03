@@ -34,7 +34,7 @@
                 android:lineSpacingExtra="5sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Актуальное"/>
+                android:text="@string/relevant"/>
 
             <TextView
                 android:id="@+id/counterRelevant"
@@ -52,7 +52,7 @@
                 tools:text="Все 32" />
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerViewRelevant"
+                android:id="@+id/recyclerViewRelevantEvents"
                 tools:listitem="@layout/relevant_events_list_item"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -94,7 +94,7 @@
                 android:textStyle="normal"
                 android:textColor="#333333"
                 android:lineSpacingExtra="5sp"
-                tools:text="Прошедшие"
+                android:text="@string/past"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -114,7 +114,7 @@
                 tools:text="Все 104" />
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerViewPast"
+                android:id="@+id/recyclerViewPastEvents"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 tools:listitem="@layout/past_event_list_item"

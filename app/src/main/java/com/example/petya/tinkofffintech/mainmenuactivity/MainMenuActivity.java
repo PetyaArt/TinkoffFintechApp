@@ -28,7 +28,7 @@ public class MainMenuActivity extends AppCompatActivity {
     Fragment mFragmentActive;
 
     final FragmentManager fm = getSupportFragmentManager();
-
+    //TODO: добавить swipe to refresh
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 

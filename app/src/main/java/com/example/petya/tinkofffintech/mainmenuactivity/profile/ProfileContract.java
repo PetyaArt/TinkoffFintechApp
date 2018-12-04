@@ -1,10 +1,10 @@
-package com.example.petya.tinkofffintech.mainmenuactivity.events;
+package com.example.petya.tinkofffintech.mainmenuactivity.profile;
 
 import com.example.petya.tinkofffintech.BasePresenter;
 import com.example.petya.tinkofffintech.BaseView;
 import com.example.petya.tinkofffintech.data.animedata.event.Events;
 
-public interface EventsContract {
+public interface ProfileContract {
 
     interface View extends BaseView<Presenter> {
 
@@ -16,7 +16,6 @@ public interface EventsContract {
 
         void showError();
 
-        void setAdapter(Events events);
     }
 
     interface Presenter extends BasePresenter<View> {

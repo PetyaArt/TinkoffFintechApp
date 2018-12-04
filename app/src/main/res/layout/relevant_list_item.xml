@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@android:color/white"
     android:orientation="vertical"
     android:layout_marginEnd="8dp"
     android:layout_marginStart="8dp"
@@ -69,19 +70,23 @@
 
         <TextView
             android:id="@+id/relevantDescription"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
+            android:fontFamily="sans-serif"
+            android:textColor="#9299a2"
+            android:textSize="12sp"
+            android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/relevantName"
-            android:textSize="12sp"
-            android:fontFamily="sans-serif"
-            android:textStyle="normal"
-            android:textColor="#9299a2"
-            tools:text="Tinkoff.ru предлагает участникам Хакатона ВКонтакте подумать над решением двух задач"/>
+            tools:text="Tinkoff.ru предлагает участникам Хакатона ВКонтакте подумать над решением двух задач" />
     </android.support.constraint.ConstraintLayout>
+
+    <!--TODO: textView relevantDescription закращивается в черный-->
 
 </android.support.v7.widget.CardView>

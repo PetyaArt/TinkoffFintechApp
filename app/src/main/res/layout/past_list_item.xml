@@ -31,7 +31,7 @@
         android:textStyle="normal"
         android:textColor="#9299a2"
         android:lineSpacingExtra="4sp"
-        tools:text="Школьникам" />
+        android:text="Школьникам" />
 
     <TextView
         android:id="@+id/pastName"
@@ -46,7 +46,7 @@
         android:textStyle="normal"
         android:textColor="#333333"
         android:lineSpacingExtra="6sp"
-        tools:text="Интернет-олимпиада мехмата" />
+        android:text="Интернет-олимпиада мехмата" />
 
     <TextView
         android:id="@+id/pastDate"
@@ -61,7 +61,7 @@
         android:textStyle="normal"
         android:textColor="#9299a2"
         android:lineSpacingExtra="4sp"
-        tools:text="АВГ 2018 Г. "/>
+        android:text="АВГ 2018 Г. "/>
 
     <TextView
         android:id="@+id/pastCity"
@@ -78,7 +78,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/pastImage"
         app:layout_constraintTop_toBottomOf="@+id/pastName"
-        tools:text="Москва, Санкт-Петербург " />
+        android:text="Москва, Санкт-Петербург " />
 
     <View
         android:layout_width="0dp"

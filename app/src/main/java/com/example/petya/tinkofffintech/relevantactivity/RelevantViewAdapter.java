@@ -15,15 +15,15 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Random;
 
-import static com.example.petya.tinkofffintech.util.constants.СonstantsImageUrl.image1;
-import static com.example.petya.tinkofffintech.util.constants.СonstantsImageUrl.image2;
-import static com.example.petya.tinkofffintech.util.constants.СonstantsImageUrl.image3;
-import static com.example.petya.tinkofffintech.util.constants.СonstantsImageUrl.image4;
-import static com.example.petya.tinkofffintech.util.constants.СonstantsImageUrl.image5;
-import static com.example.petya.tinkofffintech.util.constants.СonstantsImageUrl.image6;
-import static com.example.petya.tinkofffintech.util.constants.СonstantsImageUrl.image7;
-import static com.example.petya.tinkofffintech.util.constants.СonstantsImageUrl.image8;
-import static com.example.petya.tinkofffintech.util.constants.СonstantsImageUrl.image9;
+import static com.example.petya.tinkofffintech.util.constants.ConstantsImageUrl.image1;
+import static com.example.petya.tinkofffintech.util.constants.ConstantsImageUrl.image2;
+import static com.example.petya.tinkofffintech.util.constants.ConstantsImageUrl.image3;
+import static com.example.petya.tinkofffintech.util.constants.ConstantsImageUrl.image4;
+import static com.example.petya.tinkofffintech.util.constants.ConstantsImageUrl.image5;
+import static com.example.petya.tinkofffintech.util.constants.ConstantsImageUrl.image6;
+import static com.example.petya.tinkofffintech.util.constants.ConstantsImageUrl.image7;
+import static com.example.petya.tinkofffintech.util.constants.ConstantsImageUrl.image8;
+import static com.example.petya.tinkofffintech.util.constants.ConstantsImageUrl.image9;
 
 public class RelevantViewAdapter extends RecyclerView.Adapter<RelevantViewAdapter.ViewHolder> {
 

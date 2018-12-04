@@ -36,7 +36,7 @@
             android:fontFamily="sans-serif-medium"
             android:textStyle="normal"
             android:textColor="#ffffff"
-            tools:text="СПЕЦКУРС"/>
+            android:text="СПЕЦКУРС"/>
 
         <TextView
             android:id="@+id/relevantDate"
@@ -51,7 +51,7 @@
             android:textStyle="normal"
             android:textColor="#9299a2"
             android:lineSpacingExtra="4sp"
-            tools:text="НОЯБРЬ 2018 г."/>
+            android:text="НОЯБРЬ 2018 г."/>
 
         <TextView
             android:id="@+id/relevantName"

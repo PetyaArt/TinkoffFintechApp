@@ -24,7 +24,6 @@ public class EventsPresenter implements EventsContract.Presenter {
 
     @Override
     public void takeView(EventsContract.View view) {
-        Log.d("myLogs", "lol");
         mEventsView = view;
         mRepository.getApiServer().getEvents()
                 .subscribeOn(Schedulers.io())

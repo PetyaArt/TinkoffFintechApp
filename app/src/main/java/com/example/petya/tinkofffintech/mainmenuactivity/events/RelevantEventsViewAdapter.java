@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Random;
 
-import static com.example.petya.tinkofffintech.util.constants.СonstantsImageUrl.*;
+import static com.example.petya.tinkofffintech.util.constants.ConstantsImageUrl.*;
 
 public class RelevantEventsViewAdapter extends RecyclerView.Adapter<RelevantEventsViewAdapter.ViewHolder> {
 

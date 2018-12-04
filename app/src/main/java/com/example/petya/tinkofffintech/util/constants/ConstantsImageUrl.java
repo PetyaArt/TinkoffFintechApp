@@ -3,7 +3,7 @@ package com.example.petya.tinkofffintech.util.constants;
 import java.util.ArrayList;
 import java.util.List;
 
-public class СonstantsImageUrl {
+public class ConstantsImageUrl {
     public static final String image1 = "https://images.unsplash.com/photo-1521521075819-8dfb91b45d67?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=560&fit=crop&ixid=eyJhcHBfaWQiOjF9&s=91885463210e90e90d286327ec62b67a";
     public static final String image2 = "https://images.unsplash.com/photo-1461342249744-29a57e9bd1cb?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=560&fit=crop&ixid=eyJhcHBfaWQiOjF9&s=03e8a4206d2c9951dfd0b2789069ffcd";
     public static final String image3 = "https://images.unsplash.com/photo-1521748388305-088d6512dcfd?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=560&fit=crop&ixid=eyJhcHBfaWQiOjF9&s=86125cd7e68649c0e81eb2a37db7be7c";

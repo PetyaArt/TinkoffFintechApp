@@ -4,7 +4,7 @@ package com.example.petya.tinkofffintech.data.animedata.courses;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Grade_ {
+public class SubGrade {
 
     @SerializedName("id")
     @Expose
@@ -12,7 +12,7 @@ public class Grade_ {
 
     @SerializedName("mark")
     @Expose
-    private Integer mark;
+    private Float mark;
 
     @SerializedName("status")
     @Expose
@@ -30,11 +30,11 @@ public class Grade_ {
         this.id = id;
     }
 
-    public Integer getMark() {
+    public Float getMark() {
         return mark;
     }
 
-    public void setMark(Integer mark) {
+    public void setMark(Float mark) {
         this.mark = mark;
     }
 

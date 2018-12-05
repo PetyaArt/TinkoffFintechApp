@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.example.petya.tinkofffintech.R;
+import com.example.petya.tinkofffintech.authactivity.AuthActivity;
 import com.example.petya.tinkofffintech.mainmenuactivity.MainMenuActivity;
 
 //TODO: можно наврное сделать через Dagger мб не уверен

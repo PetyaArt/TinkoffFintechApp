@@ -6,11 +6,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
+import com.example.petya.tinkofffintech.data.animedata.courses.SubGrade;
+
 import java.text.DateFormat;
 import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -71,5 +74,10 @@ public class ActivityUtils {
             e.printStackTrace();
         }
         return date + date2;
+    }
+
+    public static String getFirstName(String str) {
+        String[] parts = str.split(" ", 2);
+        return parts[1];
     }
 }

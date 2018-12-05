@@ -5,6 +5,7 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+
 public class Grade {
 
     @SerializedName("student")
@@ -17,7 +18,7 @@ public class Grade {
 
     @SerializedName("grades")
     @Expose
-    private List<Grade_> grades = null;
+    private List<SubGrade> grades = null;
 
     @SerializedName("group_id")
     @Expose
@@ -39,11 +40,11 @@ public class Grade {
         this.studentId = studentId;
     }
 
-    public List<Grade_> getGrades() {
+    public List<SubGrade> getGrades() {
         return grades;
     }
 
-    public void setGrades(List<Grade_> grades) {
+    public void setGrades(List<SubGrade> grades) {
         this.grades = grades;
     }
 

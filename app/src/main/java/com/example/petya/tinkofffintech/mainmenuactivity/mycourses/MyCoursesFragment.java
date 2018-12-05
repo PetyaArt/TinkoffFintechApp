@@ -5,12 +5,15 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.petya.tinkofffintech.R;
+import com.example.petya.tinkofffintech.data.animedata.courses.Example;
 import com.example.petya.tinkofffintech.data.animedata.event.Events;
 import com.example.petya.tinkofffintech.di.App;
 
@@ -20,6 +23,8 @@ public class MyCoursesFragment extends Fragment implements MyCoursesContract.Vie
 
     @Inject
     MyCoursesContract.Presenter mPresenter;
+
+    private RecyclerView mRecyclerView;
 
     @Inject
     public MyCoursesFragment() {
@@ -54,7 +59,9 @@ public class MyCoursesFragment extends Fragment implements MyCoursesContract.Vie
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        mRecyclerView = view.findViewById(R.id.recyclerViewMyCourses);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+
         if (getActivity() != null) {
             Toolbar toolbar = view.findViewById(R.id.toolbarCourses);
             ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
@@ -79,5 +86,12 @@ public class MyCoursesFragment extends Fragment implements MyCoursesContract.Vie
     @Override
     public void showError() {
 
+    }
+
+    @Override
+    public void showData(Example example) {
+        AcademicPerformanceViewAdapter adapter = new AcademicPerformanceViewAdapter();
+        adapter.setEvents(example);
+        mRecyclerView.setAdapter(adapter);
     }
 }

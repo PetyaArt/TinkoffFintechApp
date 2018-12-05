@@ -4,13 +4,9 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.example.petya.tinkofffintech.data.animedata.courses.Example;
-import com.example.petya.tinkofffintech.data.animedata.event.Events;
 import com.example.petya.tinkofffintech.data.source.Repository;
-import com.example.petya.tinkofffintech.mainmenuactivity.events.EventsContract;
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-
-import org.json.JSONArray;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -41,8 +37,9 @@ public class MyCoursesPresenter implements MyCoursesContract.Presenter {
                     }
 
                     @Override
-                    public void onNext(JsonArray sSONArray) {
-                        Log.d("myLogs2", String.valueOf(sSONArray));
+                    public void onNext(JsonArray jsonArray) {
+                        Example example = new Gson().fromJson(jsonArray.get(1), Example.class);
+                        mMyCoursesView.showData(example);
                     }
 
                     @Override

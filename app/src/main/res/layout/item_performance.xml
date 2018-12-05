@@ -10,9 +10,9 @@
         android:id="@+id/profile_image"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginStart="19dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="19dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="34dp"
         android:src="@drawable/anime_avatar"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,7 +30,7 @@
         android:fontFamily="sans-serif"
         android:gravity="center"
         android:textColor="#333333"
-        android:textSize="10sp"
+        android:textSize="9sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,15 +39,15 @@
 
     <TextView
         android:id="@+id/textViewPointsUser"
-        android:layout_width="28dp"
+        android:layout_width="35dp"
         android:layout_height="20dp"
         android:layout_marginTop="12dp"
-        android:text="234"
-        android:textSize="12sp"
+        android:background="@drawable/rounded_corner"
         android:gravity="center"
         android:textColor="@android:color/white"
-        android:background="@drawable/rounded_corner"
+        android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="23.4" />
 
 </android.support.constraint.ConstraintLayout>

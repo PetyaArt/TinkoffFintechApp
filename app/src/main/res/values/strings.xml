@@ -27,4 +27,7 @@
     <string name="header_city">Город проживания</string>
     <string name="ellipsisStart">❝</string>
     <string name="ellipsisEnd">❞</string>
+    <string name="label_past">Прошедшее</string>
+    <string name="fitChatPoints">балла</string>
+    <string name="courses_completed">Пройденные курсы</string>
 </resources>

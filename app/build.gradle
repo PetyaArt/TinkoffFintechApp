@@ -56,4 +56,6 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.2.0'
 
     implementation 'com.github.iammert:ScalingLayout:1.2.1'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.txusballesteros:FitChart:1.0'
 }

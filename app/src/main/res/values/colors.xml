@@ -11,5 +11,12 @@
     <color name="backButton">#FFDD2D</color>
     <color name="backButtonPressed">#FFDD2D</color>
     <color name="bottomLine">#C7C9CC</color>
+    <color name="themeEvents">#72c2ff</color>
+    <color name="themeSchool">#b1a5ee</color>
+    <color name="themeFintech">#f79696</color>
+    <color name="themeSpecialCourse">#6cd6a2</color>
+    <color name="themeInternship">#ffb191</color>
+    <color name="empty">#eaecee</color>
+    <color name="notEmpty">#458bf6</color>
 
 </resources>

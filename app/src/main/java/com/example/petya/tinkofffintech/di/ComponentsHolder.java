@@ -40,7 +40,7 @@ public class ComponentsHolder {
         return mAuthActivityComponent;
     }
 
-    public void releaseFirstActivityComponent() {
+    public void releaseAuthActivityComponent() {
         mAuthActivityComponent = null;
     }
 
@@ -63,7 +63,7 @@ public class ComponentsHolder {
         return mRelevantActivityComponent;
     }
 
-    public void releaseRelevantActivityComponentt() {
+    public void releaseRelevantActivityComponent() {
         mRelevantActivityComponent = null;
     }
 

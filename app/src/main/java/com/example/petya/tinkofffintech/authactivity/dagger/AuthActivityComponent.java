@@ -7,7 +7,6 @@ import com.example.petya.tinkofffintech.di.dagger.FragmentScoped;
 
 import dagger.Subcomponent;
 
-@FragmentScoped
 @ActivityScoped
 @Subcomponent(modules = AuthModule.class)
 public interface AuthActivityComponent {

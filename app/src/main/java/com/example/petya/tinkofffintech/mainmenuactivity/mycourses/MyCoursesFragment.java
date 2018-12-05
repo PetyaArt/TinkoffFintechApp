@@ -11,10 +11,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.petya.tinkofffintech.R;
+import com.example.petya.tinkofffintech.data.animedata.event.Events;
 import com.example.petya.tinkofffintech.di.App;
 
-public class MyCoursesFragment extends Fragment {
+import javax.inject.Inject;
 
+public class MyCoursesFragment extends Fragment implements MyCoursesContract.View {
+
+    @Inject
+    MyCoursesContract.Presenter mPresenter;
+
+    @Inject
     public MyCoursesFragment() {
         // Required empty public constructor
     }
@@ -25,6 +32,18 @@ public class MyCoursesFragment extends Fragment {
         if (getContext() != null) {
             App.getApp(getContext()).getComponentsHolder().getMainMenuComponent().injectMyCoursesFragment(this);
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mPresenter.takeView(this);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mPresenter.dropView();
     }
 
     @Override
@@ -40,5 +59,25 @@ public class MyCoursesFragment extends Fragment {
             Toolbar toolbar = view.findViewById(R.id.toolbarCourses);
             ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         }
+    }
+
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
+
+    @Override
+    public void showNoInternet() {
+
+    }
+
+    @Override
+    public void showError() {
+
     }
 }

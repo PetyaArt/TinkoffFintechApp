@@ -34,4 +34,12 @@ public class AuthActivity extends AppCompatActivity {
                     getSupportFragmentManager(), authFragment, R.id.contentFrame);
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (isFinishing()) {
+            App.getApp(this).getComponentsHolder().releaseAuthActivityComponent();
+        }
+    }
 }

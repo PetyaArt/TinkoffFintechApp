@@ -1,7 +1,11 @@
 package com.example.petya.tinkofffintech.relevantactivity;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +15,16 @@ import android.widget.TextView;
 import com.example.petya.tinkofffintech.R;
 import com.example.petya.tinkofffintech.data.animedata.event.Active;
 import com.example.petya.tinkofffintech.data.animedata.event.Events;
+import com.example.petya.tinkofffintech.util.ActivityUtils;
 import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.OffsetDateTime;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
+import java.util.TimeZone;
 
 import static com.example.petya.tinkofffintech.util.constants.ConstantsImageUrl.image1;
 import static com.example.petya.tinkofffintech.util.constants.ConstantsImageUrl.image2;
@@ -28,13 +39,18 @@ import static com.example.petya.tinkofffintech.util.constants.ConstantsImageUrl.
 public class RelevantViewAdapter extends RecyclerView.Adapter<RelevantViewAdapter.ViewHolder> {
 
     private Events mEvents;
+    private Context mContext;
+
+    public RelevantViewAdapter(Context context) {
+        mContext = context;
+    }
 
     private static final String[] urlString = {image1, image2, image3, image4, image5, image6, image7, image8, image9};
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext().getApplicationContext())
+        View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.relevant_list_item, viewGroup,  false);
         return new ViewHolder(view);
     }
@@ -53,7 +69,7 @@ public class RelevantViewAdapter extends RecyclerView.Adapter<RelevantViewAdapte
         mEvents = events;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView relevantImage;
         TextView relevantDate;
@@ -71,12 +87,28 @@ public class RelevantViewAdapter extends RecyclerView.Adapter<RelevantViewAdapte
         }
 
         public void bind(Active active) {
-            relevantDate.setText("НОЯБ 2018 Г. "); //TODO: время исправить
+            relevantDate.setText(ActivityUtils.getParseTime(active.getDateStart(), active.getDateEnd()));
             relevantName.setText(active.getTitle());
             if (active.getEventType() == null) {
                 relevantTheme.setText("Мероприятие");
+                relevantTheme.setBackgroundColor(mContext.getResources().getColor(R.color.themeEvents));
             } else {
                 relevantTheme.setText(active.getEventType().getName());
+                if (active.getEventType().getName().equals("Финтех Школа")) {
+                    relevantTheme.setBackgroundColor(mContext.getResources().getColor(R.color.themeFintech));
+                }
+                if (active.getEventType().getName().equals("Стажировка")){
+                    relevantTheme.setBackgroundColor(mContext.getResources().getColor(R.color.themeInternship));
+                }
+                if (active.getEventType().getName().equals("Школьникам")){
+                    relevantTheme.setBackgroundColor(mContext.getResources().getColor(R.color.themeSchool));
+                }
+                if (active.getEventType().getName().equals("Курсы для школьников")){
+                    relevantTheme.setBackgroundColor(mContext.getResources().getColor(R.color.themeSchool));
+                }
+                if (active.getEventType().getName().equals("Спецкурс")){
+                    relevantTheme.setBackgroundColor(mContext.getResources().getColor(R.color.themeSpecialCourse));
+                }
             }
             Picasso.get()
                     .load(urlString[new Random().nextInt(urlString.length)]) //TODO: Странное решение петя

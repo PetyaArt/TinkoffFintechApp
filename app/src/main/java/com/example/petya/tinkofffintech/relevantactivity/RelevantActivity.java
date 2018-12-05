@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.petya.tinkofffintech.R;
-import com.example.petya.tinkofffintech.authactivity.AuthFragment;
 import com.example.petya.tinkofffintech.di.App;
 import com.example.petya.tinkofffintech.util.ActivityUtils;
 
@@ -33,6 +32,14 @@ public class RelevantActivity extends AppCompatActivity {
             relevantFragment = mRelevantFragmentProvider.get();
             ActivityUtils.addFragmentToActivity(
                     getSupportFragmentManager(), relevantFragment, R.id.contentFrameRelevant);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (isFinishing()) {
+            App.getApp(this).getComponentsHolder().releaseRelevantActivityComponent();
         }
     }
 }

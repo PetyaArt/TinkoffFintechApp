@@ -6,7 +6,9 @@ import com.example.petya.tinkofffintech.di.dagger.FragmentScoped;
 import com.example.petya.tinkofffintech.mainmenuactivity.events.EventsContract;
 import com.example.petya.tinkofffintech.mainmenuactivity.events.EventsFragment;
 import com.example.petya.tinkofffintech.mainmenuactivity.events.EventsPresenter;
+import com.example.petya.tinkofffintech.mainmenuactivity.mycourses.MyCoursesContract;
 import com.example.petya.tinkofffintech.mainmenuactivity.mycourses.MyCoursesFragment;
+import com.example.petya.tinkofffintech.mainmenuactivity.mycourses.MyCoursesPresenter;
 import com.example.petya.tinkofffintech.mainmenuactivity.profile.ProfileContract;
 import com.example.petya.tinkofffintech.mainmenuactivity.profile.ProfileFragment;
 import com.example.petya.tinkofffintech.mainmenuactivity.profile.ProfilePresenter;
@@ -17,19 +19,19 @@ import dagger.Provides;
 @Module
 public class MainMenuModule {
 
-    @FragmentScoped
+    @ActivityScoped
     @Provides
     EventsFragment eventsFragment() {
         return new EventsFragment();
     }
 
-    @FragmentScoped
+    @ActivityScoped
     @Provides
     MyCoursesFragment myCoursesFragment() {
         return new MyCoursesFragment();
     }
 
-    @FragmentScoped
+    @ActivityScoped
     @Provides
     ProfileFragment profileFragment() {
         return new ProfileFragment();
@@ -45,5 +47,11 @@ public class MainMenuModule {
     @Provides
     ProfileContract.Presenter profilePresenter(Repository repository) {
         return new ProfilePresenter(repository);
+    }
+
+    @ActivityScoped
+    @Provides
+    MyCoursesContract.Presenter myCoursesPresenter(Repository repository) {
+        return new MyCoursesPresenter(repository);
     }
 }

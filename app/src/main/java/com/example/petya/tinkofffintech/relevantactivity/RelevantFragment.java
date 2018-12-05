@@ -74,7 +74,7 @@ public class RelevantFragment extends Fragment implements RelevantContract.View 
 
     @Override
     public void setAdapter(Events events) {
-        RelevantViewAdapter  relevantViewAdapter = new RelevantViewAdapter();
+        RelevantViewAdapter  relevantViewAdapter = new RelevantViewAdapter(getContext());
         relevantViewAdapter.setEvents(events);
         mRecyclerView.setAdapter(relevantViewAdapter);
     }

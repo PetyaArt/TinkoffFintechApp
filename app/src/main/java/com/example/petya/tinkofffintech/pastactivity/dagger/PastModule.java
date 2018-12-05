@@ -13,7 +13,7 @@ import dagger.Provides;
 @Module
 public class PastModule {
 
-    @FragmentScoped
+    @ActivityScoped
     @Provides
     PastFragment relevantFragment() {
         return new PastFragment();

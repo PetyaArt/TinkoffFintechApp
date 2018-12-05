@@ -1,21 +1,372 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_light"
     tools:context=".mainmenuactivity.mycourses.MyCoursesFragment">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbarCourses"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </android.support.v7.widget.Toolbar>
+            android:layout_height="wrap_content"></android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
-</FrameLayout>
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Успеваемость"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewSpecificPerformance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="end"
+                android:text="ДЕТАЛИ"
+                android:textColor="#458bf6"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewSpecificPerformance"
+                tools:listitem="@layout/item_performance" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Рейтинг"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewSpecificRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="end"
+                android:text="ДЕТАЛИ"
+                android:textColor="#458bf6"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewPointsOverallRating"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewSpecificRating"
+                tools:text="2/30" />
+
+            <TextView
+                android:id="@+id/textViewPointsPassTest"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPointsOverallRating"
+                tools:text="15/18" />
+
+            <TextView
+                android:id="@+id/textViewPointsDoneHomework"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPointsPassTest"
+                tools:text="12/18" />
+
+            <TextView
+                android:id="@+id/textViewOverallRating"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="40dp"
+                android:fontFamily="sans-serif"
+                android:textColor="#9299a2"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toStartOf="@+id/textViewPointsOverallRating"
+                app:layout_constraintTop_toBottomOf="@+id/textViewSpecificRating"
+                tools:text="Общий рейтинг " />
+
+            <TextView
+                android:id="@+id/textViewPassTest"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="sans-serif"
+                android:textColor="#9299a2"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toStartOf="@+id/textViewPointsPassTest"
+                app:layout_constraintTop_toBottomOf="@+id/textViewOverallRating"
+                tools:text="Пройдено тестов" />
+
+            <TextView
+                android:id="@+id/textViewDoneHomework"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="sans-serif"
+                android:textColor="#9299a2"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toStartOf="@+id/textViewPointsDoneHomework"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPassTest"
+                tools:text="Выполнено домашек" />
+
+            <TextView
+                android:id="@+id/textViewCounterPassedLesson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="sans-serif"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="10 занятий" />
+
+            <TextView
+                android:id="@+id/textViewPassed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="sans-serif"
+                android:textColor="#9299a2"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toTopOf="@+id/textViewCounterPassedLesson"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Прошло" />
+
+            <TextView
+                android:id="@+id/textViewCounterRemainedLesson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="sans-serif"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="10 занятий" />
+
+            <TextView
+                android:id="@+id/textViewRemained"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="sans-serif"
+                android:textColor="#9299a2"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toTopOf="@+id/textViewCounterRemainedLesson"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Осталось" />
+
+            <com.txusballesteros.widgets.FitChart
+                android:id="@+id/fitChatPoints"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="22dp"
+                app:animationMode="overdraw"
+                app:backStrokeColor="@color/empty"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView16"
+                app:strokeSize="12dp"
+                app:valueStrokeColor="@color/notEmpty" />
+
+            <TextView
+                android:id="@+id/textViewFitChatPoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="19dp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#333333"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="@+id/fitChatPoints"
+                app:layout_constraintStart_toStartOf="@+id/fitChatPoints"
+                app:layout_constraintTop_toTopOf="@+id/fitChatPoints"
+                tools:text="182" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/fitChatPoints"
+                android:textColor="#9299a2"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="@+id/fitChatPoints"
+                app:layout_constraintStart_toStartOf="@+id/fitChatPoints"
+                app:layout_constraintTop_toBottomOf="@+id/textViewFitChatPoints" />
+
+            <ProgressBar
+                android:id="@+id/progressBarLesson"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:theme="@style/ProgressBar"
+                app:layout_constraintBottom_toTopOf="@+id/textViewPassed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:progress="50" />
+
+            <TextView
+                android:id="@+id/textViewCounterLesson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="sans-serif"
+                android:textColor="#333333"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/progressBarLesson"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="20 занятий" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="16dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:fontFamily="sans-serif-medium"
+            android:lineSpacingExtra="5sp"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:text="@string/courses_completed" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
+        tools:listitem="@layout/item_courses_completed"/>
+
+</android.support.constraint.ConstraintLayout>

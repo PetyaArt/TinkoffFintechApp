@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.petya.tinkofffintech.R;
 import com.example.petya.tinkofffintech.data.animedata.event.Archive;
 import com.example.petya.tinkofffintech.data.animedata.event.Events;
+import com.example.petya.tinkofffintech.util.ActivityUtils;
 import com.squareup.picasso.Picasso;
 
 import static com.example.petya.tinkofffintech.util.constants.ConstantsImageUrl.image1;
@@ -32,7 +33,7 @@ public class PastViewAdapter extends RecyclerView.Adapter<PastViewAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext().getApplicationContext())
+        View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.past_list_item, viewGroup,  false);
         return new ViewHolder(view);
     }
@@ -69,7 +70,7 @@ public class PastViewAdapter extends RecyclerView.Adapter<PastViewAdapter.ViewHo
         }
 
         public void bind(Archive archive) {
-            pastDate.setText("НОЯБ 2018 Г. "); //TODO: время исправить
+            pastDate.setText(ActivityUtils.getParseTime(archive.getDateStart(), archive.getDateEnd()));
             pastName.setText(archive.getTitle());
             if (archive.getEventType() == null) {
                 pastTheme.setText("Мероприятие");

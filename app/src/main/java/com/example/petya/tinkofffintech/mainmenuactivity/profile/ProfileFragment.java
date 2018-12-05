@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,7 +22,6 @@ import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Year;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -57,7 +55,8 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
 
     TextView mTextViewScore;
     TextView mTextViewTest;
-    TextView mTextViewCounterCource;
+    TextView mTextViewCounterCourse;
+    TextView mTextViewstatus;
 
 
     @Inject
@@ -108,7 +107,7 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
         mTextViewNameAndAge = view.findViewById(R.id.textViewNameAndAge);
         mTextViewMyTeam = view.findViewById(R.id.textViewMyTeam);
 
-        mTextViewMobilePhone = view.findViewById(R.id.textViewHeaderMobilePhone);
+        mTextViewMobilePhone = view.findViewById(R.id.textViewMobilePhone);
         mTextViewMail = view.findViewById(R.id.textViewMail);
         mTextViewCity = view.findViewById(R.id.textViewCity);
         mTextViewSchool = view.findViewById(R.id.textViewSchool);
@@ -122,7 +121,8 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
 
         mTextViewScore = view.findViewById(R.id.textViewScore);
         mTextViewTest = view.findViewById(R.id.textViewTest);
-        mTextViewCounterCource = view.findViewById(R.id.textViewCounterCourse);
+        mTextViewCounterCourse = view.findViewById(R.id.textViewCounterCourse);
+        mTextViewstatus = view.findViewById(R.id.textViewStatus);
     }
 
     @Override
@@ -171,11 +171,15 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
         mTextViewEndHei.setText(String.valueOf(profile.getUser().getUniversityGraduation()));
         mTextViewDepartment.setText(profile.getUser().getDepartment());
         mTextViewCurrentWork.setText(profile.getUser().getCurrentWork());
+        mTextViewstatus.setText(profile.getUser().getDescription());
         Picasso.get().load("https://fintech.tinkoff.ru" + profile.getUser().getAvatar()).into(mImageViewAvatar);
 
         //TODO:добавить удаление блоков когда данных не поступает
+        //TODO:возможность звонить
     }
 
+
+    //TODO: может быть сделать более красивее
     private String getAge(String birthday) {
         Calendar cal = Calendar.getInstance();
         Calendar dob = Calendar.getInstance();

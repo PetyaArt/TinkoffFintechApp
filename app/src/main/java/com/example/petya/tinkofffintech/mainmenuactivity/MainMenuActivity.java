@@ -67,4 +67,12 @@ public class MainMenuActivity extends AppCompatActivity {
         fm.beginTransaction().add(R.id.main_container, mMyCoursesFragment, "2").hide(mMyCoursesFragment).commit();
         fm.beginTransaction().add(R.id.main_container,mEventsFragment, "1").commit();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (isFinishing()) {
+            App.getApp(this).getComponentsHolder().releaseMainMenuComponent();
+        }
+    }
 }

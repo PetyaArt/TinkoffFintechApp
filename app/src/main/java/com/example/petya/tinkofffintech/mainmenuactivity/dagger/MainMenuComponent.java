@@ -9,7 +9,6 @@ import com.example.petya.tinkofffintech.mainmenuactivity.profile.ProfileFragment
 
 import dagger.Subcomponent;
 
-@FragmentScoped
 @ActivityScoped
 @Subcomponent(modules = MainMenuModule.class)
 public interface MainMenuComponent {

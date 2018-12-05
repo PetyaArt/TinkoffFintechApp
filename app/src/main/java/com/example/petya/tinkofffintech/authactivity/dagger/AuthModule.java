@@ -13,7 +13,7 @@ import dagger.Provides;
 @Module
 public class AuthModule {
 
-    @FragmentScoped
+    @ActivityScoped
     @Provides
     AuthFragment authFragment() {
         return new AuthFragment();

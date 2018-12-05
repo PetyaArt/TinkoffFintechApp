@@ -110,7 +110,7 @@
                 android:id="@+id/recyclerViewProfilePerformance"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:listitem="@layout/relevant_events_list_item"
+                tools:listitem="@layout/item_performance"
                 android:orientation="horizontal"
                 app:layoutManager="android.support.v7.widget.LinearLayoutManager"
                 android:layout_centerVertical="true"/>

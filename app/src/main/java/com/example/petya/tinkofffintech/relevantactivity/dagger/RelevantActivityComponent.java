@@ -10,7 +10,6 @@ import com.example.petya.tinkofffintech.relevantactivity.RelevantFragment;
 
 import dagger.Subcomponent;
 
-@FragmentScoped
 @ActivityScoped
 @Subcomponent(modules = RelevantModule.class)
 public interface RelevantActivityComponent {

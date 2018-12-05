@@ -23,7 +23,7 @@ public class PastActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_past);
-
+        //TODO:добавить поиск по RecycleView
         App.getApp(this).getComponentsHolder().getPastActivityComponent().injectPastActivity(this);
 
         PastFragment relevantFragment =
@@ -32,6 +32,15 @@ public class PastActivity extends AppCompatActivity {
             relevantFragment = mPastFragmentProvider.get();
             ActivityUtils.addFragmentToActivity(
                     getSupportFragmentManager(), relevantFragment, R.id.contentFrame);
+        }
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (isFinishing()) {
+            App.getApp(this).getComponentsHolder().releasePastActivityComponent();
         }
     }
 }

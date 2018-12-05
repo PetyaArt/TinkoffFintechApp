@@ -33,7 +33,8 @@
             android:screenOrientation="portrait" />
         <activity android:name=".relevantactivity.RelevantActivity"></activity>
 
-        <activity android:name=".pastactivity.PastActivity"></activity>
+        <activity android:name=".pastactivity.PastActivity"
+            android:label="@string/label_past"></activity>
     </application>
 
     <!--TODO:установить на все активити портерт-->

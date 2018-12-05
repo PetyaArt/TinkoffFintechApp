@@ -104,7 +104,7 @@ public class EventsFragment extends Fragment implements EventsContract.View, Vie
 
     @Override
     public void setAdapter(Events events) {
-        RelevantEventsViewAdapter relevantViewAdapter = new RelevantEventsViewAdapter();
+        RelevantEventsViewAdapter relevantViewAdapter = new RelevantEventsViewAdapter(getContext());
         relevantViewAdapter.setEvents(events);
         mRelevantRecyclerView.setAdapter(relevantViewAdapter);
 

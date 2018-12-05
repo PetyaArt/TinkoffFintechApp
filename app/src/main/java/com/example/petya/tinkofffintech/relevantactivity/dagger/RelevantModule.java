@@ -16,7 +16,7 @@ import dagger.Provides;
 @Module
 public class RelevantModule {
 
-    @FragmentScoped
+    @ActivityScoped
     @Provides
     RelevantFragment relevantFragment() {
         return new RelevantFragment();

@@ -39,7 +39,7 @@ public class PastEventsViewAdapter extends RecyclerView.Adapter<PastEventsViewAd
         mEvents = events;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageEvents;
         TextView nameEvents;

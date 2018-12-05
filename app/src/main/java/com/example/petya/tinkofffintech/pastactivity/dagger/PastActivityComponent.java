@@ -7,7 +7,6 @@ import com.example.petya.tinkofffintech.pastactivity.PastFragment;
 
 import dagger.Subcomponent;
 
-@FragmentScoped
 @ActivityScoped
 @Subcomponent(modules = PastModule.class)
 public interface PastActivityComponent {

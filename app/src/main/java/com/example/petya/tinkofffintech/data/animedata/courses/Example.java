@@ -10,9 +10,22 @@ public class Example {
     @SerializedName("grades")
     @Expose
     private List<Grade> grades = null;
+
+    @SerializedName("grouped_tasks")
+    @Expose
+    private List<List<GroupedTask>> groupedTasks = null;
+
     @SerializedName("name")
     @Expose
     private String name;
+
+    public List<List<GroupedTask>> getGroupedTasks() {
+        return groupedTasks;
+    }
+
+    public void setGroupedTasks(List<List<GroupedTask>> groupedTasks) {
+        this.groupedTasks = groupedTasks;
+    }
 
     public List<Grade> getGrades() {
         return grades;

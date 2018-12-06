@@ -40,11 +40,11 @@ public class Grade {
         this.studentId = studentId;
     }
 
-    public List<SubGrade> getGrades() {
+    public List<SubGrade> getSubGrades() {
         return grades;
     }
 
-    public void setGrades(List<SubGrade> grades) {
+    public void setSubGrades(List<SubGrade> grades) {
         this.grades = grades;
     }
 

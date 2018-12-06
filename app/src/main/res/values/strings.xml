@@ -30,4 +30,14 @@
     <string name="label_past">Прошедшее</string>
     <string name="fitChatPoints">балла</string>
     <string name="courses_completed">Пройденные курсы</string>
+    <string name="lesson">занятий</string>
+    <string name="done_homework">Выполнено домашек</string>
+    <string name="done_test">Пройдено тестов</string>
+    <string name="overall_rating">Общий рейтинг</string>
+    <string name="passed">Прошло</string>
+    <string name="remained">Осталось</string>
+    <string name="rating">Рейтинг</string>
+    <string name="specific_rating">ДЕТАЛИ</string>
+    <string name="rerformance">Успеваемость</string>
+    <string name="specific_performance">ДЕТАЛИ</string>
 </resources>

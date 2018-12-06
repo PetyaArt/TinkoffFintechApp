@@ -32,31 +32,31 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     @Inject
     ProfileContract.Presenter mPresenter;
 
-    ImageView mImageViewAvatar;
+    private ImageView mImageViewAvatar;
 
-    RecyclerView mRecyclerViewProfilePerformance;
+    private RecyclerView mRecyclerViewProfilePerformance;
 
-    TextView mTextViewNameProfile;
-    TextView mTextViewMailProfile;
+    private TextView mTextViewNameProfile;
+    private TextView mTextViewMailProfile;
 
-    TextView mTextViewNameAndAge;
-    TextView mTextViewMyTeam;
+    private TextView mTextViewNameAndAge;
+    private TextView mTextViewMyTeam;
 
-    TextView mTextViewMobilePhone;
-    TextView mTextViewMail;
-    TextView mTextViewCity;
-    TextView mTextViewSchool;
-    TextView mTextViewEndSchool;
-    TextView mTextViewHei;
-    TextView mTextViewFaculty;
-    TextView mTextViewEndHei;
-    TextView mTextViewDepartment;
-    TextView mTextViewCurrentWork;
+    private TextView mTextViewMobilePhone;
+    private TextView mTextViewMail;
+    private TextView mTextViewCity;
+    private TextView mTextViewSchool;
+    private TextView mTextViewEndSchool;
+    private TextView mTextViewHei;
+    private TextView mTextViewFaculty;
+    private TextView mTextViewEndHei;
+    private TextView mTextViewDepartment;
+    private TextView mTextViewCurrentWork;
 
-    TextView mTextViewScore;
-    TextView mTextViewTest;
-    TextView mTextViewCounterCourse;
-    TextView mTextViewstatus;
+    private TextView mTextViewScore;
+    private TextView mTextViewTest;
+    private TextView mTextViewCounterCourse;
+    private TextView mTextViewstatus;
 
 
     @Inject

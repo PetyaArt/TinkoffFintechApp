@@ -17,7 +17,6 @@ import android.widget.TextView;
 import com.example.petya.tinkofffintech.R;
 import com.example.petya.tinkofffintech.data.animedata.courses.Example;
 import com.example.petya.tinkofffintech.data.animedata.courses.Grade;
-import com.example.petya.tinkofffintech.data.animedata.courses.GroupedTask;
 import com.example.petya.tinkofffintech.data.animedata.courses.SubGrade;
 import com.example.petya.tinkofffintech.di.App;
 import com.txusballesteros.widgets.FitChart;
@@ -42,7 +41,8 @@ public class MyCoursesFragment extends Fragment implements MyCoursesContract.Vie
     private ProgressBar mProgressBarLesson;
     private TextView mTextViewCounterLessonNumber;
     private TextView mTextViewCounterPassedLessonNumber;
-    private TextView mtextViewCounterRemainedLessonNumber;
+    private TextView mTextViewCounterRemainedLessonNumber;
+    private Toolbar mToolbar;
 
     @Inject
     public MyCoursesFragment() {
@@ -77,6 +77,13 @@ public class MyCoursesFragment extends Fragment implements MyCoursesContract.Vie
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        if (getActivity() != null) {
+            mToolbar = view.findViewById(R.id.toolbarCourses);
+            mToolbar.setTitle(R.string.my_course);
+            ((AppCompatActivity)getActivity()).setSupportActionBar(mToolbar);
+        }
+
         mRecyclerView = view.findViewById(R.id.recyclerViewMyCourses);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
@@ -91,7 +98,7 @@ public class MyCoursesFragment extends Fragment implements MyCoursesContract.Vie
         mTextViewPointsDoneHomework = view.findViewById(R.id.textViewPointsDoneHomework);
 
         mTextViewCounterPassedLessonNumber = view.findViewById(R.id.textViewCounterPassedLessonNumber);
-        mtextViewCounterRemainedLessonNumber = view.findViewById(R.id.textViewCounterRemainedLessonNumber);
+        mTextViewCounterRemainedLessonNumber = view.findViewById(R.id.textViewCounterRemainedLessonNumber);
 
         mFitChatPoints = view.findViewById(R.id.fitChatPoints);
         mTextViewFitChatPoints = view.findViewById(R.id.textViewFitChatPoints);
@@ -99,10 +106,6 @@ public class MyCoursesFragment extends Fragment implements MyCoursesContract.Vie
         mProgressBarLesson = view.findViewById(R.id.progressBarLesson);
         mTextViewCounterLessonNumber = view.findViewById(R.id.textViewCounterLessonNumber);
 
-        if (getActivity() != null) {
-            Toolbar toolbar = view.findViewById(R.id.toolbarCourses);
-            ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-        }
     }
 
     @Override
@@ -142,7 +145,7 @@ public class MyCoursesFragment extends Fragment implements MyCoursesContract.Vie
         mTextViewPointsDoneHomework.setText(howManyHomework(grade));
         //TODO: сделать сортировку и вытащить себя
         mTextViewCounterLessonNumber.setText(String.valueOf(example.getGroupedTasks().size() - 2));
-        mtextViewCounterRemainedLessonNumber.setText(howManyLessonRemained(grade, example.getGroupedTasks().size() - 2));
+        mTextViewCounterRemainedLessonNumber.setText(howManyLessonRemained(grade, example.getGroupedTasks().size() - 2));
         mTextViewCounterPassedLessonNumber.setText(String.valueOf(howManyLessonPassed(grade)));
         mProgressBarLesson.setMax(example.getGroupedTasks().size() - 2);
         mProgressBarLesson.setProgress(howManyLessonPassed(grade));

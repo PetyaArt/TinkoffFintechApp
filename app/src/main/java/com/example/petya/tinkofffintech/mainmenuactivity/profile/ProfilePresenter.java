@@ -36,20 +36,23 @@ public class ProfilePresenter implements ProfileContract.Presenter {
 
     @Override
     public void getData() {
+        if (mEventsView == null)
+            return;
         mRepository.getApiServer().getProfileInfo()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Profile>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
                     }
-
                     @Override
                     public void onNext(Profile profile) {
-                        mEventsView.showData(profile);
+                        if (profile.getStatus().equals("Error")) {
+                            Log.d("myLogs", profile.getStatus());
+                        } else {
+                            mEventsView.showData(profile);
+                        }
                     }
-
                     @Override
                     public void onError(Throwable e) {
                         Log.d("myLogs", e.toString());

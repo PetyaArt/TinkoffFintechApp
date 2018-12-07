@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Preferences {
 
@@ -18,18 +19,6 @@ public class Preferences {
 
     public Preferences(Context context) {
         mPreferences = context.getSharedPreferences(FILE_NAME, 0);
-    }
-
-    private SharedPreferences.Editor getEditor() {
-        return mPreferences.edit();
-    }
-
-    public void setCookies(String data) {
-        getEditor().putString(COOKIES, data).commit();
-    }
-
-    public String getCookies() {
-        return mPreferences.getString(COOKIES, "");
     }
 
     public void setCookies(HashSet<String> cookies) {

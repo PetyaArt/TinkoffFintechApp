@@ -78,6 +78,7 @@
         android:layout_marginBottom="148dp"
         android:text="@string/log"
         android:textSize="14sp"
+        android:background="@drawable/button_auth"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

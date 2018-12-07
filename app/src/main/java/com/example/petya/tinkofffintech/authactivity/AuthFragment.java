@@ -1,5 +1,6 @@
 package com.example.petya.tinkofffintech.authactivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.petya.tinkofffintech.R;
 import com.example.petya.tinkofffintech.di.App;
+import com.example.petya.tinkofffintech.mainmenuactivity.MainMenuActivity;
 
 import javax.inject.Inject;
 
@@ -24,7 +26,6 @@ public class AuthFragment extends Fragment implements AuthContract.View, View.On
 
     private EditText mLogin;
     private EditText mPassword;
-    private Button mButtonAuth;
     private ProgressBar mProgressBar;
 
     @Inject
@@ -59,10 +60,10 @@ public class AuthFragment extends Fragment implements AuthContract.View, View.On
 
         mLogin = root.findViewById(R.id.editTextLogin);
         mPassword = root.findViewById(R.id.editTextPassword);
-        mButtonAuth = root.findViewById(R.id.buttonAuth);
+        Button buttonAuth = root.findViewById(R.id.buttonAuth);
         mProgressBar = root.findViewById(R.id.progressBar);
 
-        mButtonAuth.setOnClickListener(this);
+        buttonAuth.setOnClickListener(this);
 
         return root;
     }
@@ -92,8 +93,18 @@ public class AuthFragment extends Fragment implements AuthContract.View, View.On
         showMessage(getString(R.string.field_empty));
     }
 
+    @Override
+    public void openActivity() {
+        if (getActivity() == null)
+            return;
+        startActivity(new Intent(getContext(), MainMenuActivity.class));
+        getActivity().finish();
+    }
+
     private void showMessage(String message) {
-        Toast.makeText(getActivity().getApplicationContext(), message, Toast.LENGTH_LONG).show();
+        if (getActivity() == null)
+            return;
+        Toast.makeText(getActivity().getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -1,11 +1,14 @@
 package com.example.petya.tinkofffintech.mainmenuactivity;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.petya.tinkofffintech.R;
@@ -61,11 +64,18 @@ public class MainMenuActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        //TODO:баг при перевороте экрана фрагменты накладываються
         mFragmentActive = mEventsFragment;
-        fm.beginTransaction().add(R.id.main_container, mProfileFragment, "3").hide(mProfileFragment).commit();
-        fm.beginTransaction().add(R.id.main_container, mMyCoursesFragment, "2").hide(mMyCoursesFragment).commit();
-        fm.beginTransaction().add(R.id.main_container,mEventsFragment, "1").commit();
+        if (savedInstanceState == null) {
+            fm.beginTransaction().add(R.id.main_container, mProfileFragment, "3").hide(mProfileFragment).commit();
+            fm.beginTransaction().add(R.id.main_container, mMyCoursesFragment, "2").hide(mMyCoursesFragment).commit();
+            fm.beginTransaction().add(R.id.main_container,mEventsFragment, "1").commit();
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putInt("key", 5);
+        super.onSaveInstanceState(outState);
     }
 
     @Override
@@ -75,4 +85,6 @@ public class MainMenuActivity extends AppCompatActivity {
             App.getApp(this).getComponentsHolder().releaseMainMenuComponent();
         }
     }
+
+
 }

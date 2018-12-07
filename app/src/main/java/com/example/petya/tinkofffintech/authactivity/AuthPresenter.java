@@ -1,11 +1,18 @@
 package com.example.petya.tinkofffintech.authactivity;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.example.petya.tinkofffintech.data.animedata.profile.Profile;
 import com.example.petya.tinkofffintech.data.source.Repository;
 import com.example.petya.tinkofffintech.network.SingInBody;
+import com.example.petya.tinkofffintech.util.Utils;
+import com.google.gson.JsonObject;
+
+import java.net.UnknownHostException;
 
 import javax.inject.Inject;
 
@@ -39,37 +46,33 @@ public class AuthPresenter implements AuthContract.Presenter {
 
 
     @Override
-    public void buttonPress(String login, String password) {
-        if (mAuthView != null) {
-            mAuthView.showProgress();
-        }
+    public void buttonPress(String login, final String password) {
+        if (mAuthView == null)
+            return;
+        mAuthView.showProgress();
         if (login.equals("") || password.equals("")) {
-            if (mAuthView != null) {
-                mAuthView.showFieldEmpty();
-                mAuthView.hideProgress();
-            }
+            mAuthView.showFieldEmpty();
+            mAuthView.hideProgress();
+        } else if(!Utils.isOnline(mRepository.getConnectivityManager())) {
+            mAuthView.showNoInternet();
+            mAuthView.hideProgress();
         } else {
-            mRepository.getApiServer().singIn(new SingInBody(login, password)) //TODO: добавить timeout
+            mRepository.getApiServer().singIn(new SingInBody(login, password))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Observer<Profile>() {
+                    .subscribe(new Observer<JsonObject>() {
                         @Override
                         public void onSubscribe(Disposable d) {
-
                         }
-
                         @Override
-                        public void onNext(Profile profile) {
-                            Log.d("myLogs", String.valueOf(profile.getStatus()));
+                        public void onNext(JsonObject jsonObject) {
+                            mAuthView.openActivity();
                         }
-
                         @Override
                         public void onError(Throwable e) {
-                            Log.d("myLogs", String.valueOf(e));
                             mAuthView.hideProgress();
                             mAuthView.showError();
                         }
-
                         @Override
                         public void onComplete() {
                             mAuthView.hideProgress();
@@ -78,4 +81,5 @@ public class AuthPresenter implements AuthContract.Presenter {
 
         }
     }
+
 }

@@ -13,6 +13,16 @@ public class ConstantsImageUrl {
     public static final String image7 = "https://images.unsplash.com/photo-1523262297412-fafbd40c6aa4?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=560&fit=crop&ixid=eyJhcHBfaWQiOjF9&s=c532df339ba9eb98dbbba95cf0735f26";
     public static final String image8 = "https://images.unsplash.com/photo-1525353369647-10dbd11745e3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=560&fit=crop&ixid=eyJhcHBfaWQiOjF9&s=4aaf815d5821aada974a6c9ff86587b6";
     public static final String image9 = "https://images.unsplash.com/photo-1519882189396-71f93cb4714b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=560&fit=crop&ixid=eyJhcHBfaWQiOjF9&s=0113400e015549c26b3b693deff189a8";
-    public static final String[] urlString = {image1, image2, image3, image4, image5, image6, image7, image8, image9};
+    public static final String[] urlString = {
+            image1,
+            image2,
+            image3,
+            image4,
+            image5,
+            image6,
+            image7,
+            image8,
+            image9
+    };
     //TODO: исправить
 }

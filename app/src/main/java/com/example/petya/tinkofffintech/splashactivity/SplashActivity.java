@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import com.example.petya.tinkofffintech.R;
 import com.example.petya.tinkofffintech.authactivity.AuthActivity;
 import com.example.petya.tinkofffintech.mainmenuactivity.MainMenuActivity;
+import com.example.petya.tinkofffintech.util.storage.Preferences;
 
 //TODO: можно наврное сделать через Dagger мб не уверен
 public class SplashActivity extends AppCompatActivity {
@@ -44,10 +45,13 @@ public class SplashActivity extends AppCompatActivity {
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
-                        //TODO: открытие другого Activity
-                        Intent intent = new Intent(SplashActivity.this, MainMenuActivity.class);
-                        startActivity(intent);
-                        finish();
+                        if (new Preferences(getApplicationContext()).getCookie().isEmpty()) {
+                            startActivity(new Intent(SplashActivity.this, AuthActivity.class));
+                            finish();
+                        } else {
+                            startActivity(new Intent(SplashActivity.this, MainMenuActivity.class));
+                            finish();
+                        }
                     }
 
                     @Override

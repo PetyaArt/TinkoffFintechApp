@@ -1,11 +1,8 @@
 package com.example.petya.tinkofffintech.relevantactivity;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,16 +12,10 @@ import android.widget.TextView;
 import com.example.petya.tinkofffintech.R;
 import com.example.petya.tinkofffintech.data.animedata.event.Active;
 import com.example.petya.tinkofffintech.data.animedata.event.Events;
-import com.example.petya.tinkofffintech.util.ActivityUtils;
+import com.example.petya.tinkofffintech.util.Utils;
 import com.squareup.picasso.Picasso;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.OffsetDateTime;
-import java.util.Date;
-import java.util.Locale;
 import java.util.Random;
-import java.util.TimeZone;
 
 import static com.example.petya.tinkofffintech.util.constants.ConstantsImageUrl.image1;
 import static com.example.petya.tinkofffintech.util.constants.ConstantsImageUrl.image2;
@@ -87,7 +78,7 @@ public class RelevantViewAdapter extends RecyclerView.Adapter<RelevantViewAdapte
         }
 
         public void bind(Active active) {
-            relevantDate.setText(ActivityUtils.getParseTime(active.getDateStart(), active.getDateEnd()));
+            relevantDate.setText(Utils.getParseTime(active.getDateStart(), active.getDateEnd()));
             relevantName.setText(active.getTitle());
             if (active.getEventType() == null) {
                 relevantTheme.setText("Мероприятие");

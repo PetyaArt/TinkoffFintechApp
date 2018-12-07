@@ -5,7 +5,7 @@
     <item
         android:id="@+id/action_settings"
         app:showAsAction="always"
-        android:icon="@drawable/ic_sing_out"
-        android:title="@string/singout" />
+        android:icon="@drawable/ic_exit_to_app"
+        android:title="@string/sing_out" />
 
 </menu>

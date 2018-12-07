@@ -18,7 +18,7 @@
     <string name="test">Тестов</string>
     <string name="course">Курса</string>
     <string name="score">Балла</string>
-    <string name="singout">singout</string>
+    <string name="sing_out">singout</string>
     <string name="contact_information">Контактная информация</string>
     <string name="header_mobile_phone">Мобильный телефон</string>
     <string name="mobile_phone">+7 (965) 123 44 55</string>
@@ -38,6 +38,7 @@
     <string name="remained">Осталось</string>
     <string name="rating">Рейтинг</string>
     <string name="specific_rating">ДЕТАЛИ</string>
-    <string name="rerformance">Успеваемость</string>
+    <string name="performance">Успеваемость</string>
     <string name="specific_performance">ДЕТАЛИ</string>
+    <string name="key">bf5e348de3daca8f75ad68aef72b58b4b8a44e45fa1adb4f9f69d17b1f58a3ef</string>
 </resources>

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.example.petya.tinkofffintech.R;
 import com.example.petya.tinkofffintech.data.animedata.courses.Example;
 import com.example.petya.tinkofffintech.data.animedata.courses.Grade;
-import com.example.petya.tinkofffintech.util.ActivityUtils;
+import com.example.petya.tinkofffintech.util.Utils;
 import com.squareup.picasso.Picasso;
 
 public class AcademicPerformanceViewAdapter extends RecyclerView.Adapter<AcademicPerformanceViewAdapter.ViewHolder> {
@@ -54,7 +54,7 @@ public class AcademicPerformanceViewAdapter extends RecyclerView.Adapter<Academi
         }
 
         public void bind(Grade grade) {
-            textViewNameUser.setText(ActivityUtils.getFirstName(grade.getStudent()));
+            textViewNameUser.setText(Utils.getFirstName(grade.getStudent()));
             textViewPointsUser.setText(String.valueOf((grade.getSubGrades().get(grade.getSubGrades().size() - 1).getMark())));
             Picasso.get()
                     .load(R.drawable.anime_avatar) //TODO: Создать аватарки пользователей

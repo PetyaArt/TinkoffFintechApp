@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -56,7 +57,9 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     private TextView mTextViewScore;
     private TextView mTextViewTest;
     private TextView mTextViewCounterCourse;
-    private TextView mTextViewstatus;
+    private TextView mTextViewStatus;
+
+    private Toolbar mToolbar;
 
 
     @Inject
@@ -67,10 +70,10 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
         if (getContext() != null) {
             App.getApp(getContext()).getComponentsHolder().getMainMenuComponent().injectProfileFragment(this);
         }
-        setHasOptionsMenu(true);
     }
 
     @Override
@@ -94,8 +97,10 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (getActivity() != null) {
-            Toolbar toolbar = view.findViewById(R.id.toolbar);
-            ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+            mToolbar = view.findViewById(R.id.toolbarProfile);
+            mToolbar.inflateMenu(R.menu.menu_fragment_profile);
+            mToolbar.setTitle("");
+            ((AppCompatActivity) getActivity()).setSupportActionBar(mToolbar);
         }
 
         mRecyclerViewProfilePerformance = view.findViewById(R.id.recyclerViewProfilePerformance);
@@ -122,13 +127,7 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
         mTextViewScore = view.findViewById(R.id.textViewScore);
         mTextViewTest = view.findViewById(R.id.textViewTest);
         mTextViewCounterCourse = view.findViewById(R.id.textViewCounterCourse);
-        mTextViewstatus = view.findViewById(R.id.textViewStatus);
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_fragment_profile, menu);
-        super.onCreateOptionsMenu(menu, inflater);
+        mTextViewStatus = view.findViewById(R.id.textViewStatus);
     }
 
     @Override
@@ -171,7 +170,7 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
         mTextViewEndHei.setText(String.valueOf(profile.getUser().getUniversityGraduation()));
         mTextViewDepartment.setText(profile.getUser().getDepartment());
         mTextViewCurrentWork.setText(profile.getUser().getCurrentWork());
-        mTextViewstatus.setText(profile.getUser().getDescription());
+        mTextViewStatus.setText(profile.getUser().getDescription());
         Picasso.get().load("https://fintech.tinkoff.ru" + profile.getUser().getAvatar()).into(mImageViewAvatar);
 
         //TODO:добавить удаление блоков когда данных не поступает

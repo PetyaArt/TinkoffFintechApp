@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.example.petya.tinkofffintech.R;
 import com.example.petya.tinkofffintech.di.App;
-import com.example.petya.tinkofffintech.util.ActivityUtils;
+import com.example.petya.tinkofffintech.util.Utils;
 
 import javax.inject.Inject;
 
@@ -30,7 +30,7 @@ public class RelevantActivity extends AppCompatActivity {
                 (RelevantFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrameRelevant);
         if (relevantFragment == null) {
             relevantFragment = mRelevantFragmentProvider.get();
-            ActivityUtils.addFragmentToActivity(
+            Utils.addFragmentToActivity(
                     getSupportFragmentManager(), relevantFragment, R.id.contentFrameRelevant);
         }
     }

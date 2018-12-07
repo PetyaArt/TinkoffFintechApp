@@ -1,5 +1,8 @@
 package com.example.petya.tinkofffintech.util;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -18,7 +21,7 @@ import java.util.Locale;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-public class ActivityUtils {
+public class Utils {
 
     public static void addFragmentToActivity(@NonNull FragmentManager fragmentManager,
                                              @NonNull Fragment fragment, int frameId) {
@@ -79,5 +82,15 @@ public class ActivityUtils {
     public static String getFirstName(String str) {
         String[] parts = str.split(" ", 2);
         return parts[1];
+    }
+
+    public static boolean isOnline(ConnectivityManager connectivityManager) {
+        NetworkInfo networkInfo =
+                connectivityManager.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

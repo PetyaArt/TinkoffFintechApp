@@ -20,7 +20,7 @@ public class GroupedTask {
     private Integer maxScore;
     @SerializedName("contest__status")
     @Expose
-    private Object contestStatus;
+    private String contestStatus;
 
     public Integer getId() {
         return id;
@@ -54,11 +54,11 @@ public class GroupedTask {
         this.maxScore = maxScore;
     }
 
-    public Object getContestStatus() {
+    public String getContestStatus() {
         return contestStatus;
     }
 
-    public void setContestStatus(Object contestStatus) {
+    public void setContestStatus(String contestStatus) {
         this.contestStatus = contestStatus;
     }
 

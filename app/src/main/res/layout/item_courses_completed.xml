@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/textViewIconCoursesCompleted2"
+        android:id="@+id/textViewIconCoursesCompletedPassed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -19,7 +19,7 @@
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Сдан" />
+        android:text="@string/passed_courses" />
 
     <TextView
         android:id="@+id/textViewDateCoursesCompleted"
@@ -66,7 +66,7 @@
         tools:text="315 баллов" />
 
     <TextView
-        android:id="@+id/textViewIconCoursesCompleted"
+        android:id="@+id/textViewIconCoursesCompletedNotPassed"
         android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -80,6 +80,6 @@
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Не сдан" />
+        android:text="@string/not_passed_courses" />
 
 </android.support.constraint.ConstraintLayout>

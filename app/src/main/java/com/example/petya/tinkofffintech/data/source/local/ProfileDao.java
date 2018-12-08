@@ -1,18 +1,19 @@
 package com.example.petya.tinkofffintech.data.source.local;
 
 import android.arch.persistence.room.Dao;
-import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
 import com.example.petya.tinkofffintech.data.animedata.profile.Profile;
 
+import io.reactivex.Maybe;
+
 @Dao
 public interface ProfileDao {
 
     @Query("SELECT * FROM Profile")
-    Profile getProfile();
+    Maybe<Profile> getProfile();
 
     @Insert
     void insert(Profile profile);
@@ -20,6 +21,6 @@ public interface ProfileDao {
     @Update
     void update(Profile profile);
 
-    @Delete
-    void delete(Profile profile);
+    @Query("DELETE FROM Profile")
+    void deleteAll();
 }

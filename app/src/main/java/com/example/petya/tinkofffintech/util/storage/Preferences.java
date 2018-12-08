@@ -5,15 +5,14 @@ import android.content.SharedPreferences;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 public class Preferences {
 
-    final static String FILE_NAME = "preferences";
+    private final static String FILE_NAME = "preferences";
 
-    public final static String COOKIES = "cookie";
+    private final static String COOKIES = "cookie";
 
-    public SharedPreferences mPreferences;
+    private SharedPreferences mPreferences;
 
     private static final Object LOCK = new Object();
 

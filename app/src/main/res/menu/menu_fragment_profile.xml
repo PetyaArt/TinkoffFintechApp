@@ -3,9 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/singout"
         app:showAsAction="always"
         android:icon="@drawable/ic_exit_to_app"
         android:title="@string/sing_out" />
+
+    <item
+        android:id="@+id/update"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_update"
+        android:title="@string/update"/>
+
 
 </menu>

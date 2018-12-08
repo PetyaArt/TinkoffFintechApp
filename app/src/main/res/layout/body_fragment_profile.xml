@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -39,7 +40,7 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginEnd="34dp"
                 android:fontFamily="sans-serif"
-                android:text="Люблю программирование, тащусь от сложных  алгоритмических задач"
+                tools:text="Люблю программирование, тащусь от сложных  алгоритмических задач"
                 android:textColor="#333333"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -68,7 +69,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="28dp"
                 android:fontFamily="sans-serif"
-                android:text="Смирнова Юля, 27 лет"
+                tools:text="Смирнова Юля, 27 лет"
                 android:textColor="#9299a2"
                 android:textSize="12sp"
                 android:textStyle="normal"
@@ -98,7 +99,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="Моя T-команда" />
+                tools:text="Моя T-команда" />
 
         </android.support.constraint.ConstraintLayout>
 
@@ -188,7 +189,7 @@
                 android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="@string/mobile_phone" />
+                tools:text="@string/mobile_phone" />
 
         </android.support.constraint.ConstraintLayout>
 
@@ -232,7 +233,7 @@
                 android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="@string/mail" />
+                tools:text="@string/mail" />
         </android.support.constraint.ConstraintLayout>
 
         <include layout="@layout/item_divider" />
@@ -274,7 +275,7 @@
                 android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="Москва" />
+                tools:text="Москва" />
         </android.support.constraint.ConstraintLayout>
 
         <include layout="@layout/item_divider" />
@@ -349,7 +350,7 @@
                 android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="МОУ СОШ г. Москвы №169" />
+                tools:text="МОУ СОШ г. Москвы №169" />
         </android.support.constraint.ConstraintLayout>
 
         <include layout="@layout/item_divider" />
@@ -391,7 +392,7 @@
                 android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="2015 г." />
+                tools:text="2015 г." />
         </android.support.constraint.ConstraintLayout>
 
         <include layout="@layout/item_divider" />
@@ -428,7 +429,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="sans-serif"
-                android:text="Московский Государственный Университет им. Ломоносова"
+                tools:text="Московский Государственный Университет им. Ломоносова"
                 android:textColor="#333333"
                 android:textSize="16sp"
                 android:textStyle="normal"
@@ -470,7 +471,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="sans-serif"
-                android:text="Вычислительная математика и кибернетика"
+                tools:text="Вычислительная математика и кибернетика"
                 android:textColor="#333333"
                 android:textSize="16sp"
                 android:textStyle="normal"
@@ -517,7 +518,7 @@
                 android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="2019 г." />
+                tools:text="2019 г." />
         </android.support.constraint.ConstraintLayout>
 
         <include layout="@layout/item_divider" />
@@ -560,7 +561,7 @@
                 android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="Кафедральная" />
+                tools:text="Кафедральная" />
         </android.support.constraint.ConstraintLayout>
 
         <include layout="@layout/item_divider" />
@@ -635,11 +636,9 @@
                 android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="Тинькофф Банк" />
+                tools:text="Тинькофф Банк" />
         </android.support.constraint.ConstraintLayout>
 
     </LinearLayout>
-
-
 
 </android.support.v4.widget.NestedScrollView>

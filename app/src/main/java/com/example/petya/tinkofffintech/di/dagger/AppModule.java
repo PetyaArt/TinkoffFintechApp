@@ -4,12 +4,12 @@ import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.net.ConnectivityManager;
 
-import com.example.petya.tinkofffintech.data.animedata.link.Unsplash;
 import com.example.petya.tinkofffintech.data.source.local.AppDatabase;
-import com.example.petya.tinkofffintech.data.source.local.eventsdb.EventsDao;
+import com.example.petya.tinkofffintech.data.source.local.CoursesDao;
+import com.example.petya.tinkofffintech.data.source.local.EventsDao;
+import com.example.petya.tinkofffintech.data.source.local.EventsLocalDataSource;
 import com.example.petya.tinkofffintech.data.source.local.ProfileDao;
-import com.example.petya.tinkofffintech.data.source.local.eventsdb.EventsLocalDataSource;
-import com.example.petya.tinkofffintech.data.source.local.eventsdb.UnsplashDao;
+import com.example.petya.tinkofffintech.data.source.local.UnsplashDao;
 import com.example.petya.tinkofffintech.network.AddCookieInterceptor;
 import com.example.petya.tinkofffintech.network.ApiServer;
 import com.example.petya.tinkofffintech.network.ApiUnsplash;
@@ -58,7 +58,13 @@ public class AppModule {
     @Provides
     @Singleton
     UnsplashDao unsplashDao(AppDatabase db) {
-        return db.UnsplashDao();
+        return db.unsplashDao();
+    }
+
+    @Provides
+    @Singleton
+    CoursesDao coursesDao(AppDatabase db) {
+        return db.coursesDao();
     }
 
     @Provides

@@ -1,7 +1,6 @@
 package com.example.petya.tinkofffintech.network;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.example.petya.tinkofffintech.util.storage.Preferences;
 

@@ -1,9 +1,9 @@
 package com.example.petya.tinkofffintech.di.dagger;
 
-import com.example.petya.tinkofffintech.authactivity.dagger.AuthActivityComponent;
-import com.example.petya.tinkofffintech.mainmenuactivity.dagger.MainMenuComponent;
-import com.example.petya.tinkofffintech.pastactivity.dagger.PastActivityComponent;
-import com.example.petya.tinkofffintech.relevantactivity.dagger.RelevantActivityComponent;
+import com.example.petya.tinkofffintech.activity.authactivity.dagger.AuthActivityComponent;
+import com.example.petya.tinkofffintech.activity.mainmenuactivity.dagger.MainMenuComponent;
+import com.example.petya.tinkofffintech.activity.pastactivity.dagger.PastActivityComponent;
+import com.example.petya.tinkofffintech.activity.relevantactivity.dagger.RelevantActivityComponent;
 
 import javax.inject.Singleton;
 

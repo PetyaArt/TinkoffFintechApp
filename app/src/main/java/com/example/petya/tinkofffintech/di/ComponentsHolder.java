@@ -2,13 +2,13 @@ package com.example.petya.tinkofffintech.di;
 
 import android.content.Context;
 
-import com.example.petya.tinkofffintech.authactivity.dagger.AuthActivityComponent;
+import com.example.petya.tinkofffintech.activity.authactivity.dagger.AuthActivityComponent;
+import com.example.petya.tinkofffintech.activity.mainmenuactivity.dagger.MainMenuComponent;
+import com.example.petya.tinkofffintech.activity.pastactivity.dagger.PastActivityComponent;
+import com.example.petya.tinkofffintech.activity.relevantactivity.dagger.RelevantActivityComponent;
 import com.example.petya.tinkofffintech.di.dagger.AppComponent;
 import com.example.petya.tinkofffintech.di.dagger.AppModule;
 import com.example.petya.tinkofffintech.di.dagger.DaggerAppComponent;
-import com.example.petya.tinkofffintech.mainmenuactivity.dagger.MainMenuComponent;
-import com.example.petya.tinkofffintech.pastactivity.dagger.PastActivityComponent;
-import com.example.petya.tinkofffintech.relevantactivity.dagger.RelevantActivityComponent;
 
 public class ComponentsHolder {
 

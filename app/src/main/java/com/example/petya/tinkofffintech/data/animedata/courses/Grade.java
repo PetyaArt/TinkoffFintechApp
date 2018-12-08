@@ -1,11 +1,14 @@
 
 package com.example.petya.tinkofffintech.data.animedata.courses;
 
-import java.util.List;
+import android.arch.persistence.room.TypeConverters;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
 
+@TypeConverters(CoursesTypeConverter.class)
 public class Grade {
 
     @SerializedName("student")

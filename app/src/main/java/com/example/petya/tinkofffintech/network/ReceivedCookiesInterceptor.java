@@ -1,16 +1,12 @@
 package com.example.petya.tinkofffintech.network;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.example.petya.tinkofffintech.util.storage.Preferences;
 
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeSet;
 
-import okhttp3.Headers;
 import okhttp3.Interceptor;
 import okhttp3.Response;
 

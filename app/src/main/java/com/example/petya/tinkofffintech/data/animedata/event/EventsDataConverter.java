@@ -47,7 +47,7 @@ public class EventsDataConverter {
             return (null);
         }
         Gson gson = new Gson();
-        Type type = new TypeToken<List<Active>>() {}.getType();
+        Type type = new TypeToken<List<Archive>>() {}.getType();
         return gson.fromJson(archiveList, type);
     }
 

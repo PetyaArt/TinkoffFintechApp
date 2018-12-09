@@ -4,6 +4,7 @@ import com.example.petya.tinkofffintech.BasePresenter;
 import com.example.petya.tinkofffintech.BaseView;
 import com.example.petya.tinkofffintech.data.animedata.availablecourses.AvailableCourses;
 import com.example.petya.tinkofffintech.data.animedata.courses.Courses;
+import com.example.petya.tinkofffintech.data.animedata.profile.Profile;
 
 public interface MyCoursesContract {
 
@@ -15,7 +16,7 @@ public interface MyCoursesContract {
 
         void showError();
 
-        void showData(Courses example);
+        void showData(Courses courses);
 
         void setAvailableCourses(AvailableCourses courses);
     }

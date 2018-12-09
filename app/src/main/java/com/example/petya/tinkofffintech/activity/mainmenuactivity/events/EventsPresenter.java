@@ -18,7 +18,6 @@ import io.reactivex.schedulers.Schedulers;
 public class EventsPresenter implements EventsContract.Presenter {
 
     public final static String KEY = "bf5e348de3daca8f75ad68aef72b58b4b8a44e45fa1adb4f9f69d17b1f58a3ef";
-    //TODO: вынести key
 
     private final Repository mRepository;
 

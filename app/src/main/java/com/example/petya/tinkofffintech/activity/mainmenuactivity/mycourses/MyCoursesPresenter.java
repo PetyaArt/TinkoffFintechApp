@@ -2,8 +2,10 @@ package com.example.petya.tinkofffintech.activity.mainmenuactivity.mycourses;
 
 import android.support.annotation.Nullable;
 
+import com.example.petya.tinkofffintech.data.animedata.ProfileData;
 import com.example.petya.tinkofffintech.data.animedata.availablecourses.AvailableCourses;
 import com.example.petya.tinkofffintech.data.animedata.courses.Courses;
+import com.example.petya.tinkofffintech.data.animedata.profile.Profile;
 import com.example.petya.tinkofffintech.data.source.Repository;
 import com.example.petya.tinkofffintech.util.Utils;
 import com.google.gson.Gson;
@@ -43,6 +45,7 @@ public class MyCoursesPresenter implements MyCoursesContract.Presenter {
         if (!Utils.isOnline(mRepository.getConnectivityManager())) {
             mMyCoursesView.showNoInternet();
         }
+
         mRepository.getApiServer().getCource()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -82,7 +85,7 @@ public class MyCoursesPresenter implements MyCoursesContract.Presenter {
 
                     @Override
                     public void onNext(AvailableCourses availableCourses) {
-                        mMyCoursesView.setAvailableCourses(availableCourses);
+
                     }
 
                     @Override

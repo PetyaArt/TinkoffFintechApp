@@ -5,13 +5,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.petya.tinkofffintech.R;
+import com.example.petya.tinkofffintech.data.animedata.courses.Grade;
 import com.example.petya.tinkofffintech.data.animedata.event.Archive;
 import com.example.petya.tinkofffintech.data.animedata.event.Events;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PastEventsViewAdapter extends RecyclerView.Adapter<PastEventsViewAdapter.ViewHolder> {
 

@@ -242,7 +242,7 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     }
 
 
-    //TODO: может быть сделать более красивее
+
     private String getAge(String birthday) {
         Calendar cal = Calendar.getInstance();
         Calendar dob = Calendar.getInstance();

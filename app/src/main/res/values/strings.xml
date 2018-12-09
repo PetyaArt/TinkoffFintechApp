@@ -47,4 +47,5 @@
     <string name="academic_performance">Успеваемость</string>
     <string name="empty" />
     <string name="mark">Оценки</string>
+    <string name="search">search</string>
 </resources>

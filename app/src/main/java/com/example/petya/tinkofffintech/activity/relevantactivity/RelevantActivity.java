@@ -23,7 +23,7 @@ public class RelevantActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_relevant);
-        //TODO: если успею добавить поиск
+
         App.getApp(this).getComponentsHolder().getRelevantActivityComponent().injectRelevantActivity(this);
 
         RelevantFragment relevantFragment =

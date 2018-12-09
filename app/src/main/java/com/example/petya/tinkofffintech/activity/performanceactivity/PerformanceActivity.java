@@ -22,7 +22,7 @@ public class PerformanceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_performance);
 
-        //TODO: если успею добавить поиск
+
 
         App.getApp(this).getComponentsHolder().getPerformanceActivityComponent().injectPerformanceActivity(this);
 

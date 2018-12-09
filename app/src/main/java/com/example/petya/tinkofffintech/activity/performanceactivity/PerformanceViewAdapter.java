@@ -6,8 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Filter;
 
 import com.example.petya.tinkofffintech.R;
 import com.example.petya.tinkofffintech.data.animedata.courses.Courses;
@@ -18,17 +20,22 @@ import com.example.petya.tinkofffintech.data.animedata.link.Result;
 import com.example.petya.tinkofffintech.util.Utils;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
 
-public class PerformanceViewAdapter extends RecyclerView.Adapter<PerformanceViewAdapter.ViewHolder> {
+public class PerformanceViewAdapter extends RecyclerView.Adapter<PerformanceViewAdapter.ViewHolder> implements Filterable {
 
-    private Courses mCourses;
+    private List<Grade> mGrade;
+    private List<Grade> mGradeFull;
     private final OnItemClickListener listener;
 
-    public PerformanceViewAdapter(OnItemClickListener listener) {
+    public PerformanceViewAdapter(OnItemClickListener listener, Courses courses) {
         this.listener = listener;
+        mGrade = courses.getGrades();
+        mGradeFull = new ArrayList<>(courses.getGrades());
     }
 
     @NonNull
@@ -41,16 +48,17 @@ public class PerformanceViewAdapter extends RecyclerView.Adapter<PerformanceView
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        viewHolder.bind(mCourses.getGrades().get(i), listener);
+        viewHolder.bind(mGrade.get(i), listener);
     }
 
     @Override
     public int getItemCount() {
-        return mCourses.getGrades().size();
+        return mGrade.size();
     }
 
-    public void setEvents(Courses example) {
-        mCourses = example;
+    @Override
+    public Filter getFilter() {
+        return filter;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -69,7 +77,7 @@ public class PerformanceViewAdapter extends RecyclerView.Adapter<PerformanceView
         }
 
         public void bind(final Grade grade, final OnItemClickListener listener) {
-            name.setText(Utils.getFirstName(grade.getStudent()));
+            name.setText(grade.getStudent());
             score.setText(String.format("%s БАЛЛ", String.valueOf((grade.getSubGrades().get(grade.getSubGrades().size() - 1).getMark()))));
             Picasso.get()
                     .load(R.drawable.anime_avatar)
@@ -86,4 +94,35 @@ public class PerformanceViewAdapter extends RecyclerView.Adapter<PerformanceView
     public interface OnItemClickListener {
         void onItemClick(Grade grade);
     }
+
+    private Filter filter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Grade> filteredList = new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0) {
+                filteredList.addAll(mGradeFull);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for (Grade item : mGradeFull) {
+                    if (item.getStudent().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            mGrade.clear();
+            mGrade.addAll( (ArrayList<Grade>) results.values);
+            notifyDataSetChanged();
+        }
+    };
 }

@@ -35,9 +35,11 @@
         <activity android:name=".activity.relevantactivity.RelevantActivity"></activity>
 
         <activity android:name=".activity.pastactivity.PastActivity"
+            android:theme="@style/AppThemeNoActionBar"
             android:label="@string/label_past"></activity>
         <activity android:name=".activity.performanceactivity.PerformanceActivity"
             android:parentActivityName=".activity.mainmenuactivity.MainMenuActivity"
+            android:theme="@style/AppThemeNoActionBar"
             android:label="@string/academic_performance">
         </activity>
         <activity android:name=".activity.statementcourseactivity.StatementCourseActivity"
@@ -46,6 +48,5 @@
         </activity>
     </application>
 
-    <!--TODO:установить на все активити портерт-->
 
 </manifest>

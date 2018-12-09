@@ -26,6 +26,7 @@ import com.example.petya.tinkofffintech.data.animedata.availablecourses.Availabl
 import com.example.petya.tinkofffintech.data.animedata.courses.Courses;
 import com.example.petya.tinkofffintech.data.animedata.courses.Grade;
 import com.example.petya.tinkofffintech.data.animedata.courses.SubGrade;
+import com.example.petya.tinkofffintech.data.animedata.profile.Profile;
 import com.example.petya.tinkofffintech.di.App;
 import com.txusballesteros.widgets.FitChart;
 
@@ -155,7 +156,7 @@ public class MyCoursesFragment extends Fragment implements MyCoursesContract.Vie
             if (g.getStudentId() == 5350) {
                 grade = g;
             }
-        } //TODO: исправить id
+        }
         if (grade == null)
             return;
 
@@ -175,7 +176,7 @@ public class MyCoursesFragment extends Fragment implements MyCoursesContract.Vie
 
         mTextViewPointsPassTest.setText(howManyTest(grade));
         mTextViewPointsDoneHomework.setText(howManyHomework(grade));
-        //TODO: сделать сортировку и вытащить себя
+
         mTextViewCounterLessonNumber.setText(String.valueOf(courses.getGroupedTasks().size() - 2));
         mTextViewCounterRemainedLessonNumber.setText(howManyLessonRemained(grade, courses.getGroupedTasks().size() - 2));
         mTextViewCounterPassedLessonNumber.setText(String.valueOf(howManyLessonPassed(grade)));
@@ -228,7 +229,7 @@ public class MyCoursesFragment extends Fragment implements MyCoursesContract.Vie
         for (SubGrade g : grade.getSubGrades()) {
             if (g.getTaskType() == null)
                 continue;
-            //TODO: плохая json не понимаю как определить дз
+
             if (g.getTaskType().equals("full")) {
                 counterHomeworkAll++;
                 if (g.getStatus().equals("accepted")) {

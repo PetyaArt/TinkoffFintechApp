@@ -5,11 +5,17 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Toast;
 
 import com.example.petya.tinkofffintech.R;
@@ -25,6 +31,7 @@ public class PastFragment extends Fragment implements PastContract.View, SwipeRe
 
     private RecyclerView mRecyclerView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
+    private PastViewAdapter mPostViewAdapter;
 
     @Inject
     public PastFragment() {
@@ -37,6 +44,7 @@ public class PastFragment extends Fragment implements PastContract.View, SwipeRe
         if (getContext() != null) {
             App.getApp(getContext()).getComponentsHolder().getPastActivityComponent().injectPastFragment(this);
         }
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -57,7 +65,33 @@ public class PastFragment extends Fragment implements PastContract.View, SwipeRe
     }
 
     @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_search, menu);
+        SearchView searchView = (SearchView)menu.findItem(R.id.action_search).getActionView();
+        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                mPostViewAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        if (getActivity() != null) {
+            Toolbar toolbar = view.findViewById(R.id.toolbarPast);
+            toolbar.inflateMenu(R.menu.menu_search);
+            toolbar.setTitle(R.string.performance);
+            ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+        }
         mRecyclerView = view.findViewById(R.id.recyclerViewPast);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mSwipeRefreshLayout = view.findViewById(R.id.swiperefreshPast);
@@ -87,9 +121,8 @@ public class PastFragment extends Fragment implements PastContract.View, SwipeRe
 
     @Override
     public void setAdapter(Events events) {
-        PastViewAdapter relevantViewAdapter = new PastViewAdapter();
-        relevantViewAdapter.setEvents(events);
-        mRecyclerView.setAdapter(relevantViewAdapter);
+        mPostViewAdapter = new PastViewAdapter(events);
+        mRecyclerView.setAdapter(mPostViewAdapter);
     }
 
     @Override

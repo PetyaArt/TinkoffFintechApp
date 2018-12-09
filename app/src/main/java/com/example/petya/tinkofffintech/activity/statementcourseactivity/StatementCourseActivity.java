@@ -22,7 +22,7 @@ public class StatementCourseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statement_course);
 
-        //TODO: если успею добавить поиск
+
 
         Bundle bundle = new Bundle();
         bundle.putInt("STUDENT_ID", getIntent().getIntExtra("STUDENT_ID", 0));

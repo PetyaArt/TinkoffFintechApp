@@ -5,7 +5,9 @@ import android.content.Context;
 import com.example.petya.tinkofffintech.activity.authactivity.dagger.AuthActivityComponent;
 import com.example.petya.tinkofffintech.activity.mainmenuactivity.dagger.MainMenuComponent;
 import com.example.petya.tinkofffintech.activity.pastactivity.dagger.PastActivityComponent;
+import com.example.petya.tinkofffintech.activity.performanceactivity.dagger.PerformanceActivityComponent;
 import com.example.petya.tinkofffintech.activity.relevantactivity.dagger.RelevantActivityComponent;
+import com.example.petya.tinkofffintech.activity.statementcourseactivity.dagger.StatementCourseComponent;
 import com.example.petya.tinkofffintech.di.dagger.AppComponent;
 import com.example.petya.tinkofffintech.di.dagger.AppModule;
 import com.example.petya.tinkofffintech.di.dagger.DaggerAppComponent;
@@ -19,6 +21,8 @@ public class ComponentsHolder {
     private MainMenuComponent mMainMenuComponent;
     private RelevantActivityComponent mRelevantActivityComponent;
     private PastActivityComponent mPastActivityComponent;
+    private PerformanceActivityComponent mPerformanceActivityComponent;
+    private StatementCourseComponent mStatementCourseComponent;
 
     public ComponentsHolder(Context context) {
         this.context = context;
@@ -77,5 +81,30 @@ public class ComponentsHolder {
     public void releasePastActivityComponent() {
         mPastActivityComponent = null;
     }
+
+    public PerformanceActivityComponent getPerformanceActivityComponent() {
+        if (mPerformanceActivityComponent == null) {
+            mPerformanceActivityComponent = getAppComponent().createPerformanceActivityComponent();
+        }
+        return mPerformanceActivityComponent;
+    }
+
+    public void releasePerformanceActivityComponent() {
+        mPerformanceActivityComponent = null;
+    }
+
+
+    public StatementCourseComponent getStatementCourseComponent() {
+        if (mStatementCourseComponent == null) {
+            mStatementCourseComponent = getAppComponent().createStatementCourseComponent();
+        }
+        return mStatementCourseComponent;
+    }
+
+    public void releaseStatementCourseComponent() {
+        mPerformanceActivityComponent = null;
+    }
+
+
 
 }

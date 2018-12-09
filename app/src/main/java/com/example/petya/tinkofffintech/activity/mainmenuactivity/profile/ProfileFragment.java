@@ -20,6 +20,8 @@ import android.widget.Toast;
 import com.example.petya.tinkofffintech.R;
 import com.example.petya.tinkofffintech.activity.authactivity.AuthActivity;
 import com.example.petya.tinkofffintech.activity.mainmenuactivity.mycourses.AcademicPerformanceViewAdapter;
+import com.example.petya.tinkofffintech.activity.statementcourseactivity.StatementCourseActivity;
+import com.example.petya.tinkofffintech.data.animedata.ProfileData;
 import com.example.petya.tinkofffintech.data.animedata.courses.Courses;
 import com.example.petya.tinkofffintech.data.animedata.courses.Grade;
 import com.example.petya.tinkofffintech.data.animedata.profile.Profile;
@@ -113,7 +115,6 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
         }
 
         mRecyclerViewProfilePerformance = view.findViewById(R.id.recyclerViewProfilePerformance);
-        //TODO: сделать recycleView с успеваимостью
 
         mProgressBar = view.findViewById(R.id.progressBarProfile);
 
@@ -186,29 +187,31 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     }
 
     @Override
-    public void showData(Profile profile) {
-        mTextViewNameProfile.setText(String.format("%s %s", profile.getUser().getLastName(), profile.getUser().getFirstName()));
-        mTextViewMailProfile.setText(profile.getUser().getEmail());
+    public void showData(ProfileData profileData) {
+        try {
+            mTextViewNameProfile.setText(String.format("%s %s", profileData.getProfile().getUser().getLastName(), profileData.getProfile().getUser().getFirstName()));
+            mTextViewMailProfile.setText(profileData.getProfile().getUser().getEmail());
 
-        mTextViewNameAndAge.setText(String.format("%s %s, %s",
-                profile.getUser().getLastName(),
-                profile.getUser().getFirstName(),
-                getAge(profile.getUser().getBirthday())));
-        mTextViewMobilePhone.setText(profile.getUser().getPhoneMobile());
-        mTextViewMail.setText(profile.getUser().getEmail());
-        mTextViewCity.setText(profile.getUser().getRegion());
-        mTextViewSchool.setText(profile.getUser().getSchool());
-        mTextViewEndSchool.setText(profile.getUser().getSchoolGraduation());
-        mTextViewHei.setText(profile.getUser().getUniversity());
-        mTextViewFaculty.setText(profile.getUser().getFaculty());
-        mTextViewEndHei.setText(String.valueOf(profile.getUser().getUniversityGraduation()));
-        mTextViewDepartment.setText(profile.getUser().getDepartment());
-        mTextViewCurrentWork.setText(profile.getUser().getCurrentWork());
-        mTextViewStatus.setText(profile.getUser().getDescription());
-        Picasso.get().load("https://fintech.tinkoff.ru" + profile.getUser().getAvatar()).into(mImageViewAvatar);
+            mTextViewNameAndAge.setText(String.format("%s %s, %s",
+                    profileData.getProfile().getUser().getLastName(),
+                    profileData.getProfile().getUser().getFirstName(),
+                    getAge(profileData.getProfile().getUser().getBirthday())));
+            mTextViewMobilePhone.setText(profileData.getProfile().getUser().getPhoneMobile());
+            mTextViewMail.setText(profileData.getProfile().getUser().getEmail());
+            mTextViewCity.setText(profileData.getProfile().getUser().getRegion());
+            mTextViewSchool.setText(profileData.getProfile().getUser().getSchool());
+            mTextViewEndSchool.setText(profileData.getProfile().getUser().getSchoolGraduation());
+            mTextViewHei.setText(profileData.getProfile().getUser().getUniversity());
+            mTextViewFaculty.setText(profileData.getProfile().getUser().getFaculty());
+            mTextViewEndHei.setText(String.valueOf(profileData.getProfile().getUser().getUniversityGraduation()));
+            mTextViewDepartment.setText(profileData.getProfile().getUser().getDepartment());
+            mTextViewCurrentWork.setText(profileData.getProfile().getUser().getCurrentWork());
+            mTextViewStatus.setText(profileData.getProfile().getUser().getDescription());
+            mTextViewCounterCourse.setText(String.valueOf(profileData.getAvailableCourses().getCourses().size()));
+            Picasso.get().load("https://fintech.tinkoff.ru" + profileData.getProfile().getUser().getAvatar()).into(mImageViewAvatar);
+        } catch (NullPointerException ignored) {
 
-        //TODO:добавить удаление блоков когда данных не поступает
-        //TODO:возможность звонить
+        }
     }
 
     @Override
@@ -222,14 +225,20 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
         if (grade == null)
             return;
 
-        AcademicPerformanceViewAdapter adapter = new AcademicPerformanceViewAdapter();
+        AcademicPerformanceViewAdapter adapter = new AcademicPerformanceViewAdapter(new AcademicPerformanceViewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Grade grade) {
+                Intent intent = new Intent(getActivity(), StatementCourseActivity.class);
+                intent.putExtra("STUDENT_ID", grade.getStudentId());
+                startActivity(intent);
+            }
+        });
         adapter.setEvents(courses);
         mRecyclerViewProfilePerformance.setAdapter(adapter);
 
         mTextViewMyTeam.setText(courses.getName());
         mTextViewScore.setText(String.valueOf((grade.getSubGrades().get(grade.getSubGrades().size() - 1).getMark())));
         mTextViewTest.setText(howManyTest(grade));
-        //mTextViewCounterCourse
     }
 
 

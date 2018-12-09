@@ -1,5 +1,6 @@
 package com.example.petya.tinkofffintech.activity.mainmenuactivity.mycourses;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,6 +18,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.petya.tinkofffintech.R;
+import com.example.petya.tinkofffintech.activity.mainmenuactivity.MainMenuActivity;
+import com.example.petya.tinkofffintech.activity.performanceactivity.PerformanceActivity;
+import com.example.petya.tinkofffintech.activity.performanceactivity.PerformanceViewAdapter;
+import com.example.petya.tinkofffintech.activity.statementcourseactivity.StatementCourseActivity;
 import com.example.petya.tinkofffintech.data.animedata.availablecourses.AvailableCourses;
 import com.example.petya.tinkofffintech.data.animedata.courses.Courses;
 import com.example.petya.tinkofffintech.data.animedata.courses.Grade;
@@ -150,11 +155,18 @@ public class MyCoursesFragment extends Fragment implements MyCoursesContract.Vie
             if (g.getStudentId() == 5350) {
                 grade = g;
             }
-        }
+        } //TODO: исправить id
         if (grade == null)
             return;
 
-        AcademicPerformanceViewAdapter adapter = new AcademicPerformanceViewAdapter();
+        AcademicPerformanceViewAdapter adapter = new AcademicPerformanceViewAdapter(new AcademicPerformanceViewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Grade grade) {
+                Intent intent = new Intent(getActivity(), StatementCourseActivity.class);
+                intent.putExtra("STUDENT_ID", grade.getStudentId());
+                startActivity(intent);
+            }
+        });
         adapter.setEvents(courses);
         mRecyclerView.setAdapter(adapter);
 
@@ -185,7 +197,7 @@ public class MyCoursesFragment extends Fragment implements MyCoursesContract.Vie
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.textViewSpecificPerformance:
-
+                startActivity(new Intent(getContext(), PerformanceActivity.class));
                 break;
             case R.id.textViewSpecificRating:
 

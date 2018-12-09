@@ -2,6 +2,8 @@ package com.example.petya.tinkofffintech.activity.mainmenuactivity.profile;
 
 import android.support.annotation.Nullable;
 
+import com.example.petya.tinkofffintech.data.animedata.ProfileData;
+import com.example.petya.tinkofffintech.data.animedata.availablecourses.AvailableCourses;
 import com.example.petya.tinkofffintech.data.animedata.courses.Courses;
 import com.example.petya.tinkofffintech.data.animedata.profile.Profile;
 import com.example.petya.tinkofffintech.data.source.Repository;
@@ -9,10 +11,12 @@ import com.example.petya.tinkofffintech.util.Utils;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.BiFunction;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Response;
 
@@ -49,18 +53,18 @@ public class ProfilePresenter implements ProfileContract.Presenter {
             mProfileView.showNoInternet();
         }
 
-        mRepository.getApiServer().getProfileInfo()
+        getProfileData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Profile>() {
+                .subscribe(new Observer<ProfileData>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(Profile profile) {
-                        mProfileView.showData(profile);
+                    public void onNext(ProfileData profileData) {
+                        mProfileView.showData(profileData);
                         mProfileView.hideProgress();
                     }
 
@@ -124,6 +128,17 @@ public class ProfilePresenter implements ProfileContract.Presenter {
                     @Override
                     public void onError(Throwable e) {
                         mProfileView.showError();
+                    }
+                });
+    }
+
+    private Observable<ProfileData> getProfileData() {
+        return Observable.zip(mRepository.getApiServer().getProfileInfo(),
+                mRepository.getApiServer().getAvailableCourses(),
+                new BiFunction<Profile, AvailableCourses, ProfileData>() {
+                    @Override
+                    public ProfileData apply(Profile profile, AvailableCourses availableCourses) throws Exception {
+                        return new ProfileData(availableCourses, profile);
                     }
                 });
     }

@@ -69,8 +69,8 @@ public class AvailableCoursesEventsViewAdapter extends RecyclerView.Adapter<Avai
                 iconNotPassed.setVisibility(View.INVISIBLE);
                 iconPassed.setVisibility(View.VISIBLE);
             }
-            points.setText(String.valueOf(mPoints));
-            name.setText(courses.getTitle());
+            points.setText(String.format("%s баллов", String.valueOf(mPoints)));
+            name.setText(String.format("Курс №1. %s", courses.getTitle()));
         }
     }
 }

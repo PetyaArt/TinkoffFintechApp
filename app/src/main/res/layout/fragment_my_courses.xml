@@ -88,7 +88,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textViewSpecificPerformance"
-                        tools:listitem="@layout/item_performance" />
+                        tools:listitem="@layout/item_performance_first" />
 
 
                 </android.support.constraint.ConstraintLayout>

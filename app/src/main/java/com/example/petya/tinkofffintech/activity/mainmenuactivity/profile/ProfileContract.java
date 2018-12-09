@@ -2,6 +2,7 @@ package com.example.petya.tinkofffintech.activity.mainmenuactivity.profile;
 
 import com.example.petya.tinkofffintech.BasePresenter;
 import com.example.petya.tinkofffintech.BaseView;
+import com.example.petya.tinkofffintech.data.animedata.ProfileData;
 import com.example.petya.tinkofffintech.data.animedata.courses.Courses;
 import com.example.petya.tinkofffintech.data.animedata.profile.Profile;
 
@@ -17,7 +18,7 @@ public interface ProfileContract {
 
         void showError();
 
-        void showData(Profile profile);
+        void showData(ProfileData profileData);
 
         void setAdapter(Courses courses);
     }

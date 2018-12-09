@@ -13,7 +13,6 @@ import com.example.petya.tinkofffintech.activity.authactivity.AuthActivity;
 import com.example.petya.tinkofffintech.activity.mainmenuactivity.MainMenuActivity;
 import com.example.petya.tinkofffintech.util.storage.Preferences;
 
-//TODO: можно наврное сделать через Dagger мб не уверен
 public class SplashActivity extends AppCompatActivity {
 
     public static final int SPLASH_DURATION = 0;

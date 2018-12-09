@@ -44,4 +44,7 @@
     <string name="not_passed_courses">Не сдан</string>
     <string name="passed_courses">Сдан</string>
     <string name="update">update</string>
+    <string name="academic_performance">Успеваемость</string>
+    <string name="empty" />
+    <string name="mark">Оценки</string>
 </resources>

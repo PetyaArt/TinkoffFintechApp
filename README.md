@@ -21,4 +21,4 @@
 
 #### Описание:
  - Архитектура приложение MVP;
- - Библеотеки Dagger 2, RxJava, Retrofit, Room, Picasso;
+ - Библиотеки Dagger 2, RxJava, Retrofit, Room, Picasso;

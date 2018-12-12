@@ -15,7 +15,7 @@ import com.example.petya.tinkofffintech.util.storage.Preferences;
 
 public class SplashActivity extends AppCompatActivity {
 
-    public static final int SPLASH_DURATION = 0;
+    public static final int SPLASH_DURATION = 1000;
 
     private ImageView mImageView;
     private ConstraintLayout mConstraintLayout;
